@@ -8,7 +8,7 @@ Read `voicewright/ai-docs/HANDOFF.md`, `ai-docs/log.md`, `ai-docs/research/2026-
 
 ## What waits on Mark
 
-The listening page: `python askwright/skills/askwright/scripts/ask.py read voicewright-lab/ask_listen1`; if it is down, `serve --detach`. Installs, paid APIs, real voices, outward posts, directory or registry submissions, hooks outside these repos.
+Any open listening page: `python askwright/skills/askwright/scripts/ask.py read voicewright-lab/<page>`; if it is down, `serve --detach`. The items under Waiting on Mark in HANDOFF.md. Installs, paid APIs, real voices, outward posts, directory or registry submissions, hooks outside these repos.
 
 ## Order of work
 
@@ -19,7 +19,7 @@ The listening page: `python askwright/skills/askwright/scripts/ask.py read voice
 
 ## Rules
 
-Worktrees for shared clones. Kill by PID only. Watch long renders by log progress, with a deadline for no new output. Lab audio stays out of the public repo until Mark clears it. No AI attribution. Merge your own PRs after checks pass; leave one open for the risk cases in the global rules. Thresholds change only with a calibration note.
+Worktrees for shared clones. Kill by PID only. A refused permission check goes to Mark; do not route around it. Watch long renders by log progress, with a deadline for no new output. Lab audio stays out of the public repo until Mark clears it. No AI attribution. Merge your own PRs after checks pass; leave one open for the risk cases in the global rules. Thresholds change only with a calibration note.
 
 ## Hand over
 

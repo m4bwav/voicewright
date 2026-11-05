@@ -20,9 +20,17 @@ State on 2026-11-04. Start here.
 
 Traits against brief tied 2-2 (traits: maid, villain; brief: dwarf, young woman). Dwarf heard as one person including the 0.350 line. Pilot scene cleared and added as `.github/samples/pilot-scene.mp3`. Four engines approved. Licences read; none gated.
 
-## Engines
+## Engines and bake-off state
 
-`D:\AI\voice-engines`, one venv each, HF cache in `hf`. VoxCPM2 and Chatterbox packages installed; see the log for weights. Engine runners not written yet. The GPU was held by another session's Viggle render: queue behind it.
+`D:\AI\voice-engines`, one venv each. VoxCPM2 and Chatterbox weights are in `hf` (set `HF_HOME=D:/AI/voice-engines/hf`); Qwen3 weights are in the default user cache. Runners: `skills/voicewright/scripts/engines/` (`voxcpm2.py`, `chatterbox_run.py`, `qwen3.py`).
+
+Jobs: `Ai/voicewright-lab/bake_<engine>.json` from `make_bake.py`: four invented references by four fixed lines, 16 clips per engine, output in `bake/<engine>/`. Runners resume, skipping clips that exist.
+
+- VoxCPM2: 16 of 16 rendered, about 2.5x real time on the GPU.
+- Chatterbox and Qwen3: 0 of 16 when this was written. A background job in the previous session was fixing Chatterbox's torch (its venv had a CPU-only build) and then waiting for the GPU. It may have died with that session. First check `bake/`, and `torch.cuda.is_available()` in the Chatterbox venv. Rerun what is missing, with `--device cuda` for Qwen3.
+- The GPU is shared and was busy for hours with other sessions' renders. Queue behind them; never stop them.
+
+Next: `vw.py measure`, `line` and `cast` on each engine, level-match, then a listening page with a real guess. Prefer a blind one.
 
 ## Owed
 

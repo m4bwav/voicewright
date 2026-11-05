@@ -12,20 +12,26 @@ State on 2026-11-04. Start here.
 
 ## Waiting on Mark
 
-Public repo not created: the auto-mode permission check refused `gh repo create m4bwav/voicewright --public`. Everything is committed locally on main. With his go-ahead: create it, push, tag v0.1.0 after CI, write the wiki, then update installed copies.
+- Public repo not created: the auto-mode permission check refused `gh repo create m4bwav/voicewright --public` last session. Everything is committed locally on main. With his go-ahead or a permission rule: create it, push, tag after CI, write the wiki, then update installed copies.
+- IndexTTS-2.5 and Ming-3.0 installs: he approved them on the listening page, but the permission check refused running their installs from the clones (`uv sync` in `index-tts`, `requirements.txt` in `Ming-3.0-tts`; reason given for Ming: Code from External). Both are cloned to `D:\AI\voice-engines`, nothing installed. Do not route around this; he runs them or adds a rule.
+- TTS Audio Suite still waits.
 
-Answers on the listening page: four blind trait-against-brief picks, is the dwarf one person, is the pilot scene publishable, which engines to install. TTS Audio Suite also still waits.
+## Listening answers (2026-11-04), acted on
+
+Traits against brief tied 2-2 (traits: maid, villain; brief: dwarf, young woman). Dwarf heard as one person including the 0.350 line. Pilot scene cleared and added as `.github/samples/pilot-scene.mp3`. Four engines approved. Licences read; none gated.
+
+## Engines
+
+`D:\AI\voice-engines`, one venv each, HF cache in `hf`. VoxCPM2 and Chatterbox packages installed; see the log for weights. Engine runners not written yet. The GPU was held by another session's Viggle render: queue behind it.
 
 ## Owed
 
-1. Act on the answers. If traits do not win by ear, rewrite the design step.
-2. Bake-off once engines are approved; fixed script, `vw.py` checks, listening page.
-3. Calibrate thresholds on generated voices and on hearing: same-prompt seeds score 0.48 to 0.67, straddling the 0.55 bar.
-4. Add a pitch-creep warning to `line`: dwarf clones ran 1 to 10 semitones above the reference while passing identity. Length sanity: a runaway line ran 9.5 s for 12 words; add words-per-second to `line`.
-5. Evals NOT run. Fix fixtures first: synthetic buzz does not separate on CAM++ (`cast` fails 11 pairs, so the planted pair is not singled out) and the `noisy` clean take fails on noise floor because it has no gaps. Use real invented-voice clips with clear rights. Run under WSL, since native Windows has no Bash sandbox. Then TESTS.md and the worth check.
-6. Denoiser test by ear: ffmpeg `afftdn` on clean takes moved identity to 0.92-0.94 and flatness slightly; no listening yet.
-7. Pipeline scan under Reddit RSS ending 2026-11-13. Everscout release with the beat. Hume API end date unconfirmed.
-8. Social preview upload is a click in GitHub settings: `.github/images/social-preview.jpg`.
+1. Bake-off: runners for VoxCPM2 and Chatterbox, fixed script, `vw.py` checks, listening page. Add IndexTTS and Ming if cleared.
+2. Calibrate thresholds on generated voices and on hearing: same-prompt seeds score 0.48 to 0.67, straddling the 0.55 bar; a 0.350 line passed by ear.
+3. Evals NOT run. Fix fixtures first: synthetic buzz does not separate on CAM++ (`cast` fails 11 pairs, so the planted pair is not singled out) and the `noisy` clean take fails on noise floor because it has no gaps. Use real invented-voice clips with clear rights. Run under WSL, since native Windows has no Bash sandbox. Then TESTS.md and the worth check.
+4. Denoiser test by ear: ffmpeg `afftdn` on clean takes moved identity to 0.92-0.94 and flatness slightly; no listening yet.
+5. Pipeline scan under Reddit RSS ending 2026-11-13. Everscout release with the beat. Hume API end date unconfirmed.
+6. Social preview upload is a click in GitHub settings: `.github/images/social-preview.jpg`.
 
 ## Rules that bind
 

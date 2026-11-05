@@ -1,0 +1,3 @@
+wide cinematic painting of an empty old radio theatre recording booth at night, a single vintage ribbon microphone on a stand in warm lamp light in the foreground, many glowing sound waveforms of different colors and shapes drifting from it like ribbons into the dark room, painterly, no people, no text, no letters
+
+Model: Z-Image Turbo, workflow banner.workflow.api.json, seed 333, 1536x640, 2026-11-04.

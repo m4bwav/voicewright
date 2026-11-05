@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.wav
+*.mp3
+!skills/voicewright/samples/*.mp3
+.github/images/banner.png

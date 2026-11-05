@@ -1,0 +1,6 @@
+{
+  "name": "voicewright",
+  "owner": {"name": "Mark Rogers"},
+  "metadata": {"description": "Original, consistent, high-quality voices with measured checks"},
+  "plugins": [{"name": "voicewright", "source": "./", "description": "Original, consistent, high-quality voices: trait-based voice sheets, a voice bible anyone can rebuild from disk, and measured checks, with consent built in. Evergreen."}]
+}

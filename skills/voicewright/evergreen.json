@@ -1,0 +1,27 @@
+{
+  "evergreen": "1.0",
+  "name": "voicewright",
+  "kind": "skill",
+  "main": "SKILL.md",
+  "files": {"research": "RESEARCH.md", "changelog": "CHANGELOG.md", "learnings": "LEARNINGS.md", "tests": "TESTS.md"},
+  "protocol": "plugin",
+  "source": null,
+  "topic": "AI voice design, cloning, consistency, quality checks, engines, licences and voice rights",
+  "tier": "fast",
+  "interval_days": 14,
+  "last_checked": "2026-11-04",
+  "next_due": "2026-11-18",
+  "verify_at_use": true,
+  "volatile_claims": [
+    {"claim": "Local engine ranks and licences in references/engines.md", "last": "2026-11-04", "every_days": 14},
+    {"claim": "NO FAKES is not law; EU Art. 50 and Steam wording in references/rights.md", "last": "2026-11-04", "every_days": 30}
+  ],
+  "contradiction": null,
+  "events": [],
+  "streak": {"quiet": 0, "pinned_min": 0, "pinned_max": 0, "vau_quiet": 0},
+  "history": [{"date": "2026-11-04", "m": null, "interval_after": 14, "note": "created"}],
+  "counts": {"learnings": 1, "changes": 1, "research": 4, "tests": 0},
+  "consolidate_every": 25,
+  "tests": {"last_run": null, "harness": "claude plugin eval", "env": "owner-pc", "cases": 16, "passed": 0, "failed": 0, "failing": [], "research_after_days": null},
+  "scout": {"beat": "ai-voice", "status": "linked", "date": "2026-11-04"}
+}

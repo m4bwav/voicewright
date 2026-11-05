@@ -7,3 +7,7 @@ Kickoff run. Name kept: voicewright is clear and matches the family. One skill, 
 Second session. Read the listening answers and acted on them: design step renders traits and briefs, a low score on a generated line means listen, `line` warns on pitch and words per second, pilot sample added (commit d1d65ea). The permission check refused a detached four-engine install script; single visible installs of the pip packages VoxCPM2 and Chatterbox passed, while installs from the IndexTTS and Ming clones were refused, so those wait for Mark. Bash quoted heredocs with apostrophes broke again: write patch scripts with the Write tool.
 
 Bake-off started: VoxCPM2 rendered. Chatterbox failed twice, on a runner named like its package (renamed `chatterbox_run.py`) and on a CPU-only torch. The earlier Qwen3 environment was not found, so it was reinstalled in its own venv.
+
+## 2026-11-05
+
+Third session. All three engines rendered 16 clips; the previous session's waiting job did Qwen3 (a duplicate of mine was stopped by PID). Chatterbox needed CPU and `setuptools<81`. Eval fixtures rebuilt from invented-voice clips in `VW_EVAL_AUDIO`, outside the repo. Blind page `ask_bake` served; it also asks about the repo and the two refused installs.

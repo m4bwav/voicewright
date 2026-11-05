@@ -15,6 +15,10 @@ Calibrated 2026-11-04 on Mini LibriSpeech dev-clean-2 (CC BY 4.0): 26 real speak
 - `cast_warn` 0.45: 1.4% of different-speaker pairs reach it. A warning means listen.
 - `line_floor` 0.55. With 5 or more lines, the bar rises to the batch's mean minus 2 SD.
 
+Generated voices, one listener, 2026-11-04: Mark heard six Qwen3 dwarf clone lines as one person, including one at 0.350 that the check flagged. So DRIFT below the bar on a generated line means listen, not reject. The floor is unchanged: one take and one listener do not recalibrate it.
+
+`line` also prints `LISTEN:` warnings that never change the exit code: `PITCH` over 4 semitones from the reference, and `SLOW` or `FAST` outside 1.5 to 4.5 words per second, using `text` from the `.json` beside the clip. Starter values, uncalibrated, set from the lab's runaway line (+11.6 semitones, 1.3 words per second).
+
 Limits: clean read English speech of real people, not TTS, not acted, not short lines. Clones can fool speaker models, so a pass never proves a voice is good or right. Use one model only; scores do not transfer to other models. Thresholds on generated voices: see the lab note in `ai-docs/research/`.
 
 ## Clip faults (`measure`)

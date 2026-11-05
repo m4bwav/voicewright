@@ -1,6 +1,6 @@
 # Designing a voice
 
-Prompts move delivery more than identity, and short type labels land on the engine's defaults. In a 2026 study, adjective-only prompts to one hosted engine were heard as 93% white, 86.6% male and 60% US (figures from a search summary; treat as indicative). So the sheet says what the voice does acoustically.
+Prompts move delivery more than identity. Trait prompts are a way to get different candidates, not a proven way to get a better one: in a blind listen (2026-11-04, Qwen3, four briefs, one take each, one listener) traits sounded less stock on the maid and villain, the plain brief on the dwarf and the young woman. So render both and let the ear choose. Short labels can still land on an engine's defaults: in a 2026 study, adjective-only prompts to one hosted engine were heard as 93% white, 86.6% male and 60% US (figures from a search summary; treat as indicative). The sheet records what the chosen voice does acoustically, whichever prompt found it.
 
 ## The sheet
 
@@ -15,7 +15,7 @@ Required: `age`, `pitch` (a band in words, then measured Hz once rendered), `res
 | sweet young woman | bright, breathy, smiling | whatever the character is: low, dry, long pauses |
 | evil villain | deep, slow, hissing | high, gentle, polite, hesitant |
 
-Contrast against the type where the story allows it. Leave the word for the type out of the prompt.
+Contrast against the type where the story allows it. Keep the type word out of trait prompts. A plain-brief candidate may use it, unless the brief itself is a caricature of a class, race or gender: then skip that candidate.
 
 ## Accent and identity
 
@@ -27,4 +27,4 @@ In order of cost: different traits; a different seed (works only on engines with
 
 ## Proving it
 
-Blind, level-matched, same line, against a label-prompt baseline. Agent opinion does not count. Measurements only show the voices differ.
+Blind, level-matched, same line, with a plain-brief candidate in the set. Agent opinion does not count. Measurements only show the voices differ. Do not claim traits beat briefs: so far they tie, 2 to 2.

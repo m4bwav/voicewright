@@ -8,7 +8,7 @@ Generated voices tend to fail the same ways: ten characters collapse into a few 
 
 ## What you get
 
-- **Voice sheets in acoustic traits.** "A sassy maid" becomes pitch, resonance, texture and pace, so the prompt has less chance of landing on a stock type.
+- **Voice sheets and a blind listen.** A brief like "a sassy maid" becomes several candidates, some written as pitch, resonance, texture and pace, and you pick by ear. In our one blind test, trait prompts and plain briefs tied 2 to 2, so neither gets a free pass.
 - **A voice bible.** One `voices.json` with the sheet, reference clip and transcript, hashes, engine, model version, seed, pronunciation list, and rights.
 - **Measured checks.**
 
@@ -23,6 +23,10 @@ Generated voices tend to fail the same ways: ten characters collapse into a few 
 | `vw.py review` | One clip of the whole batch to listen to |
 
 - **Consent built in.** It will not clone a real person without written consent and declines imitations of named people, offering a designed voice instead.
+
+## Hear it
+
+[A four-voice pilot scene](.github/samples/pilot-scene.mp3) (MP3, unmixed, no room tone). The scene and voices are invented, and all of it is AI-generated with Qwen3-TTS.
 
 ## Install
 

@@ -26,6 +26,9 @@ T = {
     "cast_fail": 0.55,      # two voices in a cast this close read as one speaker
     "cast_warn": 0.45,
     "library_fail": 0.55,   # same scale, across projects and stock voices
+    "pitch_warn_st": 4.0,   # line pitch away from the reference; starter value, means listen
+    "wps_low": 1.5,         # words per second, slower is a likely runaway; starter value
+    "wps_high": 4.5,        # faster is a likely rush; starter value
     "line_floor": 0.55,     # absolute floor for a line against its own reference
     "clip_peak": -0.1,      # dBFS
     "noise_floor": -60.0,
@@ -561,6 +564,29 @@ def cmd_library(a):
     return 1 if bad else 0
 
 
+def line_warnings(st, seconds, words):
+    """Faults that identity misses. They ask for a listen and do not change the exit code."""
+    out = []
+    if st is not None and abs(st) > T["pitch_warn_st"]:
+        out.append("PITCH")
+    if words and seconds > 0:
+        wps = words / seconds
+        if wps < T["wps_low"]:
+            out.append("SLOW %.1f w/s" % wps)
+        elif wps > T["wps_high"]:
+            out.append("FAST %.1f w/s" % wps)
+    return out
+
+
+def sidecar_words(path):
+    """Word count from the .json the engine runners write beside a clip, if any."""
+    f = Path(path).with_suffix(".json")
+    try:
+        return len(json.loads(f.read_text(encoding="utf-8")).get("text", "").split())
+    except (OSError, ValueError, AttributeError):
+        return 0
+
+
 def cmd_line(a):
     """Consistency: lines against the voice's references. Bar: the floor, or the lines' own mean minus 2 SD."""
     ctx = embedder()
@@ -584,9 +610,12 @@ def cmd_line(a):
         pcm, sr2 = read_pcm(p)
         m = measure_spectrum(pcm, sr2)
         note = ""
+        st = None
         if rs.get("f0_median_hz") and m.get("f0_median_hz"):
             st = 12 * math.log2(m["f0_median_hz"] / rs["f0_median_hz"])
             note = " f0 %+.1f st" % st
+        for w in line_warnings(st, len(pcm) / sr2, sidecar_words(p)):
+            note += " LISTEN:" + w
         tag = "DRIFT" if s < bar else "ok"
         bad += tag == "DRIFT"
         print("%s %.3f%s %s" % (tag, s, note, p))

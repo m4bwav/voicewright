@@ -45,6 +45,18 @@ def run(*argv):
     return code, b.getvalue()
 
 
+class LineWarnings(unittest.TestCase):
+    def test_runaway_from_the_lab(self):
+        self.assertEqual(vw.line_warnings(11.6, 9.5, 12), ["PITCH", "SLOW 1.3 w/s"])
+
+    def test_normal_line_and_missing_data(self):
+        self.assertEqual(vw.line_warnings(2.0, 4.0, 10), [])
+        self.assertEqual(vw.line_warnings(None, 4.0, 0), [])
+
+    def test_rush(self):
+        self.assertEqual(vw.line_warnings(-5.0, 1.0, 6), ["PITCH", "FAST 6.0 w/s"])
+
+
 class Level(unittest.TestCase):
     def m(self, samples):
         return vw.measure_level(array.array("h", [max(-32768, min(32767, int(s))) for s in samples]), SR)

@@ -28,11 +28,11 @@ By job, licence and hardware, one engine per project: [references/engines.md](re
 
 ## Step 3: design a voice
 
-1. Write the sheet in acoustic traits, not types: [references/design.md](references/design.md). A request like "a sassy maid" or "a gruff dwarf" is a character brief, not a voice: turn it into pitch, resonance, texture, pace and behaviour, and drop the type word from the prompt. Never use an accent as a costume.
-2. Make at least three truly different candidates on one fixed line (differ in traits, not just seed).
+1. A request like "a sassy maid" or "a gruff dwarf" is a character brief. Write trait prompts from it (pitch, resonance, texture, pace, behaviour), with no type word: [references/design.md](references/design.md). Traits widen the options; they have not beaten plain briefs by ear (2 to 2 in a blind listen). Never use an accent as a costume.
+2. Make at least three truly different candidates on one fixed line: trait prompts that differ from each other, plus one plain-brief prompt unless the brief is a caricature. Seeds alone do not count.
 3. `VW cast --clips <candidates>`: replace any pair that fails, so the listener chooses between real alternatives.
 4. `VW library <clip> --against <other bibles> <stock folder>`: a new voice must not be last month's narrator or an engine preset.
-5. Level-match, then a blind listen on an askwright page when present (else a labelled list of files). The pick goes in the bible through `VW add`.
+5. Level-match, then a blind listen on an askwright page when present (else a labelled list of files). The pick goes in the bible through `VW add`, with a sheet describing what was chosen.
 
 ## Step 4: lock it
 

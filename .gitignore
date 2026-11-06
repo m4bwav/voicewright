@@ -5,3 +5,4 @@ __pycache__/
 !skills/voicewright/samples/*.mp3
 !.github/samples/*.mp3
 .github/images/banner.png
+evals/results/

@@ -4,36 +4,25 @@ State on 2026-11-05. Start here.
 
 ## Done
 
-- Research: `research/2026-11-04-voice-survey.md` and its parts. Beat `ai-voice` merged into everscout (PR #141, unreleased), first scan 29 notes, literature filled.
-- Plugin 0.1.0 code: skill, references, `vw.py`, `engines/qwen3.py`, tests, bible schema 1. Speaker thresholds calibrated on real speech.
-- Lab results: `research/2026-11-04-lab.md`. Lab audio lives outside the repo at `Ai/voicewright-lab`.
-- Listening page: `Ai/voicewright-lab/ask_listen1`. Read with `python Ai/askwright/skills/askwright/scripts/ask.py read <dir>`. Restart with `serve --detach`.
-- Integration PRs: see `log.md`.
+- Public repo https://github.com/m4bwav/voicewright. Plugin code, skill, tests, bible schema 1, pilot sample. everscout 0.12.0 released with the `ai-voice` beat.
+- Bake-off unblinded: VoxCPM2 2, Qwen3 2, Chatterbox 0. VoxCPM2 first for cloning: `research/2026-11-04-lab.md`.
+- Thresholds checked on generated voices, none changed: `references/thresholds.md`.
+- Evals run and tuned: `skills/voicewright/TESTS.md`. Runner `evals/run_local.py`; cases `evals/build_cases.py`.
+- Lab audio is outside the repo at `Ai/voicewright-lab`.
 
 ## Waiting on Mark
 
-- Public repo not created: the auto-mode permission check refused `gh repo create m4bwav/voicewright --public` last session. Everything is committed locally on main. With his go-ahead or a permission rule: create it, push, tag after CI, write the wiki, then update installed copies.
-- IndexTTS-2.5 and Ming-3.0 installs: he approved them on the listening page, but the permission check refused running their installs from the clones (`uv sync` in `index-tts`, `requirements.txt` in `Ming-3.0-tts`; reason given for Ming: Code from External). Both are cloned to `D:\AI\voice-engines`, nothing installed. Do not route around this; he runs them or adds a rule.
+- Blind page `Ai/voicewright-lab/ask_pilot`: the pilot scene on two engines and a denoiser test. Read with `python Ai/askwright/skills/askwright/scripts/ask.py read <dir>`, restart with `serve --detach`, unblind with `voicewright-lab/pilot_key.json`.
+- IndexTTS-2.5 and Ming-3.0: he chose to run the installs or add a rule himself. Cloned to the engines folder, nothing installed. Do not route around this.
 - TTS Audio Suite still waits.
-
-## Listening answers (2026-11-04), acted on
-
-Traits against brief tied 2-2 (traits: maid, villain; brief: dwarf, young woman). Dwarf heard as one person including the 0.350 line. Pilot scene cleared and added as `.github/samples/pilot-scene.mp3`. Four engines approved. Licences read; none gated.
-
-## Engines and bake-off state
-
-`D:/AI/voice-engines`, one venv each. Runners in `skills/voicewright/scripts/engines/`. All 16 clips rendered per engine for VoxCPM2, Chatterbox (CPU only on this card) and Qwen3: results in `research/2026-11-04-lab.md`.
-
-Waiting: blind page `Ai/voicewright-lab/ask_bake`, also asking about the repo and the IndexTTS and Ming installs. Read with `ask.py read`, unblind with `voicewright-lab/bake_key.json`, then set the default engine. After that, the pilot on the chosen engine.
+- Social preview upload is a click in GitHub settings: `.github/images/social-preview.jpg`.
 
 ## Owed
 
-1. Act on the bake-off answers. Add IndexTTS and Ming if cleared.
-2. Calibrate thresholds on generated voices and on hearing: same-prompt seeds score 0.48 to 0.67, straddling the 0.55 bar; a 0.350 line passed by ear.
-3. Evals NOT run. Fixtures are fixed: see TESTS.md. Run under WSL, since native Windows has no Bash sandbox. Then TESTS.md and the worth check.
-4. Denoiser test by ear: ffmpeg `afftdn` on clean takes moved identity to 0.92-0.94 and flatness slightly; no listening yet.
-5. Pipeline scan under Reddit RSS ending 2026-11-13. Everscout release with the beat. Hume API end date unconfirmed.
-6. Social preview upload is a click in GitHub settings: `.github/images/social-preview.jpg`.
+1. Read `ask_pilot`. Scene pick sets the clone default: on a Qwen3 win, swap the order in `references/engines.md`; on "neither", say so and try IndexTTS and Ming if installed. Denoise pick confirms or changes the rule in `references/finish.md`. Update the public sample only with a cleared take.
+2. Add IndexTTS and Ming to the bake-off once he has installed them.
+3. Widen the stock-default grader path, rerun soundalike and the suite, then the worth check.
+4. Scan the `ai-voice` beat before Reddit RSS ends on 2026-11-13. Hume API end date unconfirmed.
 
 ## Rules that bind
 

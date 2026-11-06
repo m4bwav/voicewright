@@ -57,12 +57,27 @@ def grader(g):
     return "---\n" + "\n".join(head + ["arm: both"]) + "\n---\n"
 
 
-def evidence(g):
-    if g[0] == "tool":
-        return {"type": "trace", "tool": g[1], "input_match": g[2], **({"max": 0} if g[3] == 0 else {})}
-    if g[0] == "reply":
-        return {"type": "reply", "pattern": g[1]}
-    return {"type": "file_regex", "path": ("**/" + g[1]) if len(g) > 3 else g[1], "pattern": g[2]}
+def evidence(graders):
+    """The shape `evergreen.py worth --ab` grades and evals/run_local.py reads: one dict, and reply checks as expectations.
+
+    The A/B grader searches with re.M, so a leading ^ becomes \\A. It ignores `max`, so a Write ban becomes a file check,
+    and a case with any other ban is marked redundant, which keeps it out of the A/B.
+    """
+    parts, said, ban = [], [], False
+    for g in graders:
+        if g[0] == "reply":
+            said.append("regex on the answer: " + g[1])
+        elif g[0] == "tool" and g[3] == 0 and g[1] == "Write":
+            clean = {"type": "file", "path": "prompt.txt", "match": r"\A(?![\s\S]*" + g[2] + ")"}
+            parts.append({"any": [{"type": "file", "path": "prompt.txt", "absent": True}, clean]})
+        elif g[0] == "tool":
+            parts.append({"type": "trace", "tool": g[1], "input_match": g[2], **({"max": 0} if g[3] == 0 else {})})
+            ban = ban or g[3] == 0
+        else:
+            pat = "\\A" + g[2][1:] if g[2].startswith("^") else g[2]
+            parts.append({"type": "file", "path": ("**/" + g[1]) if len(g) > 3 else g[1], "match": pat})
+    out = {"evidence": {"all": parts}} if parts else {}
+    return {**out, **({"expectations": said} if said else {}), **({"redundant": True} if ban else {})}
 
 
 def write_lf(p, text):
@@ -95,7 +110,7 @@ def main():
         if scaf:
             write_lf(d / "case.yaml", 'schema_version: "1.1"\nname: %s\ncontext:\n  scaffold_script: fixture.sh\n' % cid)
             write_lf(d / "fixture.sh", scaffold(scaf))
-        action[cid] = {"id": cid, "kind": "action", "prompt": prompt, "evidence": [evidence(g) for g in graders], **({"fixture": scaf} if scaf else {})}
+        action[cid] = {"id": cid, "kind": "action", "prompt": prompt, "max_turns": 25, "allowed_tools": ["Read", "Glob", "Grep", "Skill", "Bash", "Write", "Edit"], **evidence(graders), **({"fixture": scaf} if scaf else {})}
     data["evals"] = [action.get(c["id"], c) for c in data["evals"]]
     data["_format"] = "evergreen-test. Action cases and their folders are written by evals/build_cases.py; trigger and decoy folders by evergreen.py eval-export --out evals/cases."
     write_lf(index, json.dumps(data, indent=2, ensure_ascii=False) + "\n")

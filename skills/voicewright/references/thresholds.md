@@ -21,6 +21,8 @@ Generated voices, one listener, 2026-11-04: Mark heard six Qwen3 dwarf clone lin
 
 Generated voices, measured 2026-11-05 on three engines, 66 short clips of four invented voices, line against line (88 same-voice pairs, 362 different): same median 0.736, min 0.457, 11% under 0.55; different median 0.153, p95 0.431, 0.3% at 0.55 or over. So `cast_fail` holds on generated voices. `line_floor` over-flags them, and by engine: 0% under it for Chatterbox, 21% and 38% for VoxCPM2, so compare a generated line within its engine and listen. No threshold changed. "Same voice" here means cloned from one reference; only a few were heard.
 
+Why a person's ear still decides: VIPBench (Tang and Groh, arXiv 2611.05638, read 2026-11-06), 124,876 same-or-different judgments from 1,290 listeners, mostly unfamiliar with the speakers. Listeners said "different" to 41% of real-against-clone same-speaker responses, but also to 31% of real-against-real ones, and "same" to 26% of different-speaker real pairs. So the clone penalty is about 10 points, and a single listener's "not the same" is weak evidence alone; ask more than once. No model reached the noise ceiling (best 61% of explainable variance), and the paper recommends no fixed cosine cut-off. CAM++ was not among its eleven models, and nearly all clones came from one engine (Cartesia Sonic 3), so none of these numbers transfers to ours. No threshold changed.
+
 Limits for the first table: clean read English speech of real people, not TTS, not acted, not short lines. Clones can fool speaker models, so a pass never proves a voice is good or right. Use one model only; scores do not transfer to other models. Thresholds on generated voices: see the lab note in `ai-docs/research/`.
 
 ## Clip faults (`measure`)

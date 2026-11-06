@@ -345,9 +345,15 @@ def load(p):
     return f, json.loads(f.read_text(encoding="utf-8"))
 
 
+def write_lf(f, text):
+    """Path.write_text has no newline argument before Python 3.10."""
+    with open(f, "w", encoding="utf-8", newline="\n") as h:
+        h.write(text)
+
+
 def save(f, d):
     f.parent.mkdir(parents=True, exist_ok=True)
-    f.write_text(json.dumps(d, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
+    write_lf(f, json.dumps(d, indent=2, ensure_ascii=False) + "\n")
 
 
 def voice_id(v):
@@ -685,7 +691,7 @@ def cmd_review(a):
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(lst), "-c:a", "pcm_s16le", a.out], check=True)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
-    Path(a.out + ".txt").write_text("\n".join(rows) + "\n", encoding="utf-8", newline="\n")
+    write_lf(Path(a.out + ".txt"), "\n".join(rows) + "\n")
     print("%s: %d clips, %.1f s; timing in %s.txt" % (a.out, len(a.files), t, a.out))
     return 0
 

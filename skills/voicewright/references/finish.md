@@ -2,7 +2,7 @@
 
 Order: pick the cleanest take, trim, fix faults a check found, match EQ between sources, add room tone, level for the destination.
 
-- **Denoise only on evidence.** No direct test of denoisers on TTS output was found in research. Generative enhancers can invent sound. Default: do not denoise unless `measure` reports noise; compare before and after blind.
+- **Denoise only on evidence.** No direct test of denoisers on TTS output was found in research. Our one test: ffmpeg `afftdn` on two clean takes, one listener could not tell them from the originals, so it gained nothing and showed no harm. Generative enhancers can invent sound and were not tested. Default: do not denoise unless `measure` reports noise; compare before and after blind.
 - A steady tone across a joined track: `ffmpeg -af equalizer=f=<Hz>:t=h:w=30:g=-12`. Measure on the join, not per take; never trust a line in a spectrogram picture.
 - Room tone: a shared bed about -50 to -60 dB hides dead digital silence between lines (lightly sourced).
 - Short clips: use `--short`, because loudness normalization misjudges them, then set the level by ear.

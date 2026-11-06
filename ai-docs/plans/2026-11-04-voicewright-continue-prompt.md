@@ -17,6 +17,10 @@ Any open listening page: `python askwright/skills/askwright/scripts/ask.py read 
 3. Bake-off, then pilot, once engines are approved.
 4. Wiki, then release a new version when checks pass; pull the main clone and run `claude plugin update`.
 
+## Stop early
+
+If the session is in auto mode, no page has new answers, and today is before 2026-11-14, nothing is workable: the installs need Mark's manual approval and Hume waits for its date. Say that in two lines, print the start command, and write nothing to the repo.
+
 ## Rules
 
 Worktrees for shared clones. Kill by PID only. A refused permission check goes to Mark; do not route around it. Watch long renders by log progress, with a deadline for no new output. Lab audio stays out of the public repo until Mark clears it. No AI attribution. Merge your own PRs after checks pass; leave one open for the risk cases in the global rules. Thresholds change only with a calibration note.

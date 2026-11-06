@@ -5,7 +5,7 @@ Audio is synthetic buzz from the repository's fixture code: good for showing out
 import json, re, shutil, subprocess, sys, tempfile
 from pathlib import Path
 
-REF = sys.argv[1] if len(sys.argv) > 1 else "v0.1.1"
+REF = sys.argv[1] if len(sys.argv) > 1 else "v0.1.2"
 ROOT = Path(tempfile.mkdtemp(prefix="vw-wiki-"))
 subprocess.run(["git", "clone", "-q", "--branch", REF, "https://github.com/m4bwav/voicewright", str(ROOT / "plugin")], check=True, capture_output=True)
 SKILL = ROOT / "plugin/skills/voicewright"

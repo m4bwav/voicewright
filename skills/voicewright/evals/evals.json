@@ -132,7 +132,7 @@
       "evidence": [
         {
           "type": "file_regex",
-          "path": "voices.json",
+          "path": "**/voices.json",
           "pattern": "\"kind\":\\s*\"library\""
         },
         {

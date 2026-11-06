@@ -80,8 +80,7 @@ def grade(case, cwd, calls, text):
         elif e["type"] == "reply":
             res.append(("reply " + e["pattern"], bool(re.search(e["pattern"], text, re.I))))
         else:
-            f = cwd / e["path"]
-            res.append((e["path"] + " " + e["pattern"], f.exists() and bool(re.search(e["pattern"], f.read_text(encoding="utf-8", errors="replace"), re.I))))
+            res.append((e["path"] + " " + e["pattern"], any(f.is_file() and re.search(e["pattern"], f.read_text(encoding="utf-8", errors="replace"), re.I) for f in cwd.glob(e["path"]))))
     return res
 
 

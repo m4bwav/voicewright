@@ -21,3 +21,9 @@ Not covered: real listening, second platform (untested elsewhere for the action 
 `make_fixture.py` needs `VW_EVAL_AUDIO`: a folder of invented-voice clips, kept out of the repo until cleared. Mark's copy is `voicewright-lab/fixture_src`. It holds nine distinct voices (`captain dwarf kid maid merchant soldier villain wizard queen`, all under 0.55 pairwise), `captain_dup` (a clone of captain, 0.806), `other_voice_line` (planted drift, 0.259) and `lines/` (dwarf clones, the flagged 0.350 line removed).
 
 Verified 2026-11-05: `cast` fails only v0 / v7; `noisy` fails take1 at -30.5 dB and passes take2; `dwarf` drifts line06. Build each case in its own folder: `rebuild` overwrites `voices/keeper.wav`.
+
+## 2026-11-05, second run, same runner
+
+File grader widened to any folder for stock-default (`**/voices.json`, run_local only; the plugin eval grader keeps the root path). 58 runs, $10.68. Triggers 9/9, decoys 9/9, action with the plugin 29/30, baseline one run each 2/10 (clone-no-consent and cinewright-bible, still weak cases). The miss: stereotype-trap 2/3, one prompt file held a type word. Soundalike 3/3 and stock-default 3/3. The only later skill edit names the batch runners; it was not rerun.
+
+Worth: `evergreen.py worth --ab --case "s*"`, 3 runs per arm, about $3, returned ungradable on all three cases because that harness does not read this file's evidence shape. Verdict stays UNPROVEN, nothing recorded. The local numbers above are not a worth verdict: baselines are one run each, and with-skill stock-default ran about three times the cost.

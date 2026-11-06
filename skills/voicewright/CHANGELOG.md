@@ -1,5 +1,9 @@
 # Changelog: voicewright
 
+## 0.1.1 (released 2026-11-05)
+
+VoxCPM2 confirmed first for cloning after a pilot scene listen. Denoise note records one test on clean takes: no audible difference. SKILL.md names all three batch runners. Eval grader accepts a bible in any folder.
+
 ## 0.1.0 (released 2026-11-05)
 
 Evals found and fixed: a soundalike trigger miss, type words in prompt files, no route for a stock preset. VoxCPM2 first for cloning, provisional. Python 3.9 fix.

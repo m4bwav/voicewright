@@ -1,6 +1,6 @@
 # Handoff: voicewright
 
-State on 2026-11-06, session 8. Start here.
+State on 2026-11-06, session 9. Start here.
 
 ## Done
 
@@ -19,7 +19,7 @@ State on 2026-11-06, session 8. Start here.
 Page `voicewright-lab/ask_decide` read 2026-11-06, all five answered; `sample` and `plugin` done and closed. `vipbench` also done and closed. `engines` and `suite` stay open until done.
 
 - **Permission for three installs.** He chose installs by the agent, approved by him, and said he would switch to manual. The session was still in auto mode, and its check refused both `uv sync --all-extras` in `D:/AI/voice-engines/index-tts` and `uv pip install -r requirements.txt` for the suite. Do not route around it. Once he has switched to manual, run them in this order:
-  1. IndexTTS-2.5: `uv sync --all-extras` in its clone, then `hf download IndexTeam/IndexTTS-2.5 --local-dir=checkpoints`. Own venv. Licence: bilibili agreement; read the caps and the clause against improving other AI models before any commercial advice.
+  1. IndexTTS-2.5: `uv sync --all-extras` in its clone, then `hf download IndexTeam/IndexTTS-2.5 --local-dir=checkpoints`. Own venv. Licence read 2026-11-06 (clone d9e41aa): a separate licence is needed above 100 million monthly users or RMB 1 billion annual revenue; section 3 bars using the model or any Derivative Work, a term that covers model outputs, to improve any AI model other than itself, its derivatives or non-commercial models. So its clips must not train or tune a commercial model. Using clips in a product fits the grant, but the agreement also passes duties to downstream recipients; read those before commercial advice.
   2. Ming-3.0: use the `tiny` model and `requirements-tiny.txt`, Python 3.10.15 and a venv of its own. The 0.5b build was tested only on 80 GB and 96 GB cards. Tiny's pins are CUDA 11.8 wheels, so they may not run on the RTX 5060 Ti (Chatterbox hit the same "no kernel image" fault); test that first.
   3. TTS Audio Suite: clone at `D:/ComfyUI/custom_nodes_staging/TTS-Audio-Suite` (ccc2404, v5.10.8), not yet in `custom_nodes`. Dry run against the ComfyUI venv: 93 new packages, only `huggingface-hub` changes, torch, numpy and transformers untouched. Save `pip freeze` first. Install with `uv pip install --python D:/ComfyUI/.venv/Scripts/python.exe -r requirements.txt`. Do NOT run its `install.py`: it can uninstall and reinstall torch in the venv the film work shares. Copy into `custom_nodes`, restart ComfyUI only with an empty queue, load a film workflow to prove it still runs, then close `suite`.
 - Then add both engines to the bake-off and listen blind.

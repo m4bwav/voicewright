@@ -1,6 +1,6 @@
 ---
 name: voicewright
-description: "Make original, consistent, high-quality voices and keep them: a voice sheet in acoustic traits, truly different candidates for a blind listen, a versioned voice bible anyone can rebuild from disk, lines per script or dialogue file, and measured checks for a cast that collapses into a few voices, reuse across projects, drift between takes, artifacts and flat reads. Use whenever a game, film, narration, audiobook or kids' story needs a voice or a cast: 'design a voice', 'voice these NPCs', 'keep this voice the same', 'these voices all sound alike', 'it sounds metallic', 'which TTS should I use', 'clone this voice', 'make it sound like <actor>'. Handles consent and sound-alike requests. Film shot workflow is cinewright-voice, which calls this; whole songs are musicwright. Also 'refresh voicewright'."
+description: "Make original, consistent, high-quality voices and keep them: a voice sheet in acoustic traits, truly different candidates for a blind listen, a versioned voice bible anyone can rebuild from disk, lines per script or dialogue file, and measured checks for a cast that collapses into a few voices, reuse across projects, drift between takes, artifacts and flat reads. Use whenever a game, film, narration, audiobook or kids' story needs a voice or a cast: 'design a voice', 'voice these NPCs', 'keep this voice the same', 'these voices all sound alike', 'it sounds metallic', 'which TTS should I use', 'clone this voice'. Also first, before writing anything, for any voice meant to sound like a named actor, singer or public figure ('make my villain sound like <actor>'), even when only a prompt or text is asked for: it handles consent and sound-alikes. Film shot workflow is cinewright-voice, which calls this; whole songs are musicwright. Also 'refresh voicewright'."
 license: MIT
 metadata:
   version: 0.1.0
@@ -19,7 +19,7 @@ Read `evergreen.json`. If `contradiction` is set or today is on or after `next_d
 ## Step 1: rights first
 
 - A real person's voice, including family or the user's own for others to use: written consent listing the uses, recorded in `rights.consent`, before any clip is touched. No consent, no clone. Ask for it; do not proceed on "they would not mind".
-- "Sounds like <named actor, singer or public figure>": decline the imitation, in one sentence, and offer a designed voice from neutral traits. Do not write the name, or thinly veiled identifying details, into a prompt.
+- "Sounds like <named actor, singer or public figure>": decline the imitation, in one sentence, and offer a designed voice from neutral traits. Do not write the name, or thinly veiled identifying details, into a prompt, and do not write a description of that person's manner instead, or offer the 'same effect'.
 - Never promise a voice is exclusive or safe: [references/rights.md](references/rights.md).
 
 ## Step 2: pick the engine
@@ -28,11 +28,15 @@ By job, licence and hardware, one engine per project: [references/engines.md](re
 
 ## Step 3: design a voice
 
-1. A request like "a sassy maid" or "a gruff dwarf" is a character brief. Write trait prompts from it (pitch, resonance, texture, pace, behaviour), with no type word: [references/design.md](references/design.md). Traits widen the options; they have not beaten plain briefs by ear (2 to 2 in a blind listen). Never use an accent as a costume.
-2. Make at least three truly different candidates on one fixed line: trait prompts that differ from each other, plus one plain-brief prompt unless the brief is a caricature. Seeds alone do not count.
+1. A request like "a sassy maid" or "a gruff dwarf" is a character brief. Write trait prompts from it (pitch, resonance, texture, pace, behaviour), with no type word anywhere in the prompt, its avoid list included: [references/design.md](references/design.md). Traits widen the options; they have not beaten plain briefs by ear (2 to 2 in a blind listen). Never use an accent as a costume.
+2. Make at least three truly different candidates on one fixed line: trait prompts that differ from each other, plus one plain-brief prompt unless the brief is a caricature (a type plus an attitude, like 'sassy maid', is one: leave the brief out of every prompt and file). Seeds alone do not count.
 3. `VW cast --clips <candidates>`: replace any pair that fails, so the listener chooses between real alternatives.
 4. `VW library <clip> --against <other bibles> <stock folder>`: a new voice must not be last month's narrator or an engine preset.
 5. Level-match, then a blind listen on an askwright page when present (else a labelled list of files). The pick goes in the bible through `VW add`, with a sheet describing what was chosen.
+
+## Stock presets
+
+If the user chooses an engine preset, respect that: do not install anything or stall. Write the entry to the bible now with `rights.kind` `library`, the engine and preset name, and empty `refs`, and say two things: it is a stock voice other projects also use, and it is not locked until a reference clip is rendered.
 
 ## Step 4: lock it
 

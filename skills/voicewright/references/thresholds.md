@@ -19,7 +19,9 @@ Generated voices, one listener, 2026-11-04: Mark heard six Qwen3 dwarf clone lin
 
 `line` also prints `LISTEN:` warnings that never change the exit code: `PITCH` over 4 semitones from the reference, and `SLOW` or `FAST` outside 1.5 to 4.5 words per second, using `text` from the `.json` beside the clip. Starter values, uncalibrated, set from the lab's runaway line (+11.6 semitones, 1.3 words per second).
 
-Limits: clean read English speech of real people, not TTS, not acted, not short lines. Clones can fool speaker models, so a pass never proves a voice is good or right. Use one model only; scores do not transfer to other models. Thresholds on generated voices: see the lab note in `ai-docs/research/`.
+Generated voices, measured 2026-11-05 on three engines, 66 short clips of four invented voices, line against line (88 same-voice pairs, 362 different): same median 0.736, min 0.457, 11% under 0.55; different median 0.153, p95 0.431, 0.3% at 0.55 or over. So `cast_fail` holds on generated voices. `line_floor` over-flags them, and by engine: 0% under it for Chatterbox, 21% and 38% for VoxCPM2, so compare a generated line within its engine and listen. No threshold changed. "Same voice" here means cloned from one reference; only a few were heard.
+
+Limits for the first table: clean read English speech of real people, not TTS, not acted, not short lines. Clones can fool speaker models, so a pass never proves a voice is good or right. Use one model only; scores do not transfer to other models. Thresholds on generated voices: see the lab note in `ai-docs/research/`.
 
 ## Clip faults (`measure`)
 

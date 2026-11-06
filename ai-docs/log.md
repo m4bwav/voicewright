@@ -11,3 +11,5 @@ Bake-off started: VoxCPM2 rendered. Chatterbox failed twice, on a runner named l
 ## 2026-11-05
 
 Third session. All three engines rendered 16 clips; the previous session's waiting job did Qwen3 (a duplicate of mine was stopped by PID). Chatterbox needed CPU and `setuptools<81`. Eval fixtures rebuilt from invented-voice clips in `VW_EVAL_AUDIO`, outside the repo. Blind page `ask_bake` served; it also asks about the repo and the two refused installs.
+
+Fourth session. Unblinded the bake-off: VoxCPM2 2, Qwen3 2, Chatterbox 0. Set VoxCPM2 first for cloning on no faults, with the pilot as tie-break. Mark approved the repo: created public, CI found a real Python 3.9 bug, fixed. `.gitignore` had been hiding the pilot sample. Rendered the pilot on VoxCPM2 and served blind `ask_pilot`, with a denoiser test. Calibrated on generated voices: no threshold changed. WSL's `claude` turned out to be the Windows binary, so `evals/run_local.py` replaced `plugin eval`; three runner bugs cost two runs (cmd.exe cutting prompts, decoy kind, an IPA print). Evals found a soundalike trigger miss and two skill gaps, tuned. everscout 0.12.0 released with the beat.

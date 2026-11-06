@@ -3,4 +3,5 @@ __pycache__/
 *.wav
 *.mp3
 !skills/voicewright/samples/*.mp3
+!.github/samples/*.mp3
 .github/images/banner.png

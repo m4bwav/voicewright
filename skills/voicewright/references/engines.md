@@ -1,11 +1,11 @@
 # Engines
 
-Checked 2026-11-04 from votes, papers and reports, mostly not by ear. Local ranks are provisional until the bake-off. Full table, sources: repository `ai-docs/research/2026-11-04-engines.md`.
+Checked 2026-11-04 from votes, papers and reports, mostly not by ear. Local clone rank updated 2026-11-05 from a blind listen: VoxCPM2 2, Qwen3-TTS 2, Chatterbox 0, one listener, four voices. VoxCPM2 goes first on the tie because it had no faults, where Qwen3 had a runaway clipped take. This is a default to try, not a ranking; other rows are still provisional. Full table, sources: repository `ai-docs/research/2026-11-04-engines.md`.
 
 | job | hosted | local, in order to try |
 |---|---|---|
 | design from text | ElevenLabs Voice Design (try v3 first) | VoxCPM2, Qwen3-TTS, MOSS-VoiceGenerator |
-| clone a short clip | Eleven v4 Instant | Qwen3-TTS, VoxCPM2, Chatterbox V3 (always watermarked) |
+| clone a short clip | Eleven v4 Instant | VoxCPM2, Qwen3-TTS, Chatterbox V3 (always watermarked; CPU only on an RTX 5060 Ti) |
 | long narration | Eleven v4 | Qwen3-TTS 1.7B, MOSS-TTS v1.5, VoxCPM2; Kokoro for fast presets |
 | acted emotion | Eleven v4 tags | IndexTTS-2.5, Higgs TTS 3; budget many takes, systems under-act |
 | dialogue | ElevenLabs Text to Dialogue | per line with frozen voices, then join |

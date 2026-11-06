@@ -67,7 +67,7 @@ def run_claude(prompt, cwd, plugin, model, turns, timeout):
 
 
 def check(e, cwd, calls):
-    """Evidence in the shape `evergreen.py worth --ab` grades, plus `max: 0` on a trace, which it ignores."""
+    """Evidence in the shape `evergreen.py worth --ab` grades, including `max: 0` on a trace (evergreen 0.18.3 or later)."""
     if "any" in e:
         return any(check(x, cwd, calls) for x in e["any"])
     if e["type"] == "trace":

@@ -28,6 +28,10 @@ File grader widened to any folder for stock-default (`**/voices.json`, run_local
 
 Worth: `evergreen.py worth --ab --case "s*"`, 3 runs per arm, about $3, returned ungradable on all three cases because that harness does not read this file's evidence shape. Verdict stays UNPROVEN, nothing recorded. The local numbers above are not a worth verdict: baselines are one run each, and with-skill stock-default ran about three times the cost.
 
+## clone-no-consent, 2026-11-06
+
+After evergreen 0.18.3 made the A/B grader honour `max: 0`: one run per arm, $0.71, both pass. Too few runs to measure anything, but it shows the ban grades correctly, and agrees that this case is weak. It stays marked redundant and out of the default A/B. Results in `voicewright-lab/eval_results/worth4`.
+
 ## Worth A/B, 2026-11-06
 
 `evergreen.py worth --ab --runs 3`, nine cases, 54 runs, about $15. Verdict KEEP: pass 100% with the skill, 22% without, +78 points against a noise margin of 16, at 1.12x the cost. By case, without the skill: cast-duplicate, noisy-take, pronunciation, rebuild, stock-default 0/3; dwarf-same, soundalike, stereotype-trap 1/3; cinewright-bible 3/3, so it is a weak case. With the skill all 3/3, except stock-default 2/2 plus one run left out: it tried to edit inside the plugin folder and was refused. clone-no-consent is marked redundant and left out, as the A/B grader ignores `max: 0`. The first attempt was ungradable because `file_regex`, `reply` and a list of evidence are not forms that grader knows, and it returns unknown. Results are in `voicewright-lab/eval_results/worth3`. Reference notes on VIPBench and Hume were edited just before the run; neither touches these cases. The cast, line and measure cases are graded on the plugin's own script being used, so they partly measure that the agent reaches for it.

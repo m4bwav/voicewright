@@ -66,6 +66,19 @@ def run_claude(prompt, cwd, plugin, model, turns, timeout):
     return calls, text, cost
 
 
+def check(e, cwd, calls):
+    """Evidence in the shape `evergreen.py worth --ab` grades, plus `max: 0` on a trace, which it ignores."""
+    if "any" in e:
+        return any(check(x, cwd, calls) for x in e["any"])
+    if e["type"] == "trace":
+        hit = sum(n == e["tool"] and bool(re.search(e["input_match"], i, re.I)) for n, i in calls)
+        return hit == 0 if e.get("max") == 0 else hit >= 1
+    files = [f for f in cwd.glob(e["path"]) if f.is_file()]
+    if e.get("absent"):
+        return not files
+    return any(re.search(e["match"], f.read_text(encoding="utf-8", errors="replace"), re.I | re.M) for f in files)
+
+
 def grade(case, cwd, calls, text):
     res = []
     kind = case["kind"]
@@ -73,14 +86,11 @@ def grade(case, cwd, calls, text):
     if kind != "action":
         decoy = bool(case.get("decoy")) or kind == "decoy"
         return [("skill stayed quiet" if decoy else "skill fired", fired != decoy)]
-    for e in case["evidence"]:
-        if e["type"] == "trace":
-            hit = sum(n == e["tool"] and bool(re.search(e["input_match"], i, re.I)) for n, i in calls)
-            res.append((e["tool"] + " " + e["input_match"], hit == 0 if e.get("max") == 0 else hit >= 1))
-        elif e["type"] == "reply":
-            res.append(("reply " + e["pattern"], bool(re.search(e["pattern"], text, re.I))))
-        else:
-            res.append((e["path"] + " " + e["pattern"], any(f.is_file() and re.search(e["pattern"], f.read_text(encoding="utf-8", errors="replace"), re.I) for f in cwd.glob(e["path"]))))
+    for e in case.get("evidence", {}).get("all", []):
+        res.append((json.dumps(e, ensure_ascii=False), check(e, cwd, calls)))
+    for x in case.get("expectations", []):
+        pat = x.split(":", 1)[1].strip()
+        res.append(("reply " + pat, bool(re.search(pat, text, re.I | re.S))))
     return res
 
 
@@ -99,7 +109,7 @@ def one(case, arm, n, a, lock, state):
     finally:
         shutil.rmtree(cwd, ignore_errors=True)
     r = {"case": case["id"], "kind": case["kind"], "decoy": bool(case.get("decoy")), "arm": arm, "run": n, "pass": all(p for _, p in g), "graders": g,
-         "cost": cost, "calls": [[c, i[:300]] for c, i in calls], "reply": text[:1500]}
+         "cost": cost, "calls": [[c, i[:4000]] for c, i in calls], "reply": text[:1500]}
     with lock:
         state["cost"] += cost
         Path(a.out).mkdir(parents=True, exist_ok=True)

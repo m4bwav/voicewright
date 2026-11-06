@@ -1,0 +1,117 @@
+=== version ===
+$ vw.py --version
+0.1.0
+$ echo $?
+0
+=== init ===
+$ vw.py init voices.json
+wrote voices.json
+$ echo $?
+0
+=== init twice ===
+$ vw.py init voices.json
+ERROR voices.json exists
+$ echo $?
+2
+=== add ===
+$ vw.py add voices.json keeper.json
+added keeper; 0 errors, 0 warnings
+$ echo $?
+0
+=== add twice ===
+$ vw.py add voices.json keeper.json
+ERROR keeper already in the bible; edit it and raise its version
+$ echo $?
+2
+=== validate ===
+$ vw.py validate voices.json
+1 voices, 0 errors, 0 warnings
+$ echo $?
+0
+=== card ===
+$ vw.py card voices.json keeper
+{
+  "id": "keeper",
+  "character": "keeper",
+  "version": 1,
+  "sheet": {
+    "pitch": "low",
+    "pace": "slow bursts"
+  },
+  "refs": [
+    {
+      "file": "voices/keeper.wav",
+      "text": "A fixed test line.",
+      "emotion": "neutral",
+      "source": "designed",
+      "sha256": "5cd1a8dd116f868cbb2dfc4f75d6332fbcd2a872042aa0bc5822128e33073213"
+    }
+  ],
+  "engine": {
+    "name": "voxcpm2",
+    "model": "VoxCPM2",
+    "model_version": "abc123",
+    "seed": 4100
+  },
+  "rights": {
+    "kind": "designed",
+    "licence": "see the engine"
+  }
+}
+$ echo $?
+0
+=== card unknown ===
+$ vw.py card voices.json nobody
+ERROR no voice nobody
+$ echo $?
+2
+=== measure ===
+$ vw.py measure voices/keeper.wav voices/noisy.wav
+voices/keeper.wav  duration_s=4.0 rate=16000 peak_db=-6.9 clipped_samples=0 rms_db=-16.0 noise_floor_db=-19.3 speech_rms_db=-16.0 tail_s=0.0 head_s=0.0 max_phrase_jump_db=0.0 sibilance_db=-83.7 hf_cutoff_hz=2609 flatness_4_8k=0.97 f0_median_hz=229.2 f0_range_st=18.2 voiced_share=1.0
+  FAIL noise floor -19.3 dB (want -60.0 or lower)
+voices/noisy.wav  duration_s=4.0 rate=16000 peak_db=-6.6 clipped_samples=0 rms_db=-15.6 noise_floor_db=-18.5 speech_rms_db=-15.6 tail_s=0.0 head_s=0.0 max_phrase_jump_db=0.0 sibilance_db=-10.6 hf_cutoff_hz=8000 flatness_4_8k=0.976 f0_median_hz=191.8 f0_range_st=23.7 voiced_share=1.0
+  FAIL noise floor -18.5 dB (want -60.0 or lower)
+$ echo $?
+1
+=== cast clips ===
+$ vw.py cast --clips voices/keeper.wav voices/maid.wav
+warn 0.527 keeper / maid
+closest 0.527 (keeper / maid), mean 0.527, 1 pairs, 0 too close
+$ echo $?
+0
+=== line ===
+$ vw.py line voices.json keeper voices/keeper.wav voices/maid.wav
+ok 1.000 f0 +0.0 st voices/keeper.wav
+DRIFT 0.527 f0 -0.6 st voices/maid.wav
+2 lines, mean 0.764, bar 0.550, 1 drift
+$ echo $?
+1
+=== library ===
+$ vw.py library voices/maid.wav --against voices.json
+ok   0.527 voices.json:keeper
+1 compared, 0 too close (fail at 0.55)
+$ echo $?
+0
+=== finish ===
+$ vw.py finish voices/keeper.wav keeper_game.wav --dest game
+keeper_game.wav: game (-24 console, -18 mobile apply to the mix; lines stay consistent with each other)
+$ echo $?
+0
+=== finish unknown ===
+$ vw.py finish voices/keeper.wav x.wav --dest radio
+ERROR unknown destination radio; one of acx, audiobook, narration, film, game, web
+$ echo $?
+2
+=== review ===
+$ vw.py review voices/keeper.wav voices/maid.wav --out review.wav
+review.wav: 2 clips, 9.4 s; timing in review.wav.txt
+$ echo $?
+0
+=== stored ref ===
+['emotion', 'file', 'sha256', 'source', 'text']
+=== validate after an edit ===
+$ vw.py validate voices.json
+ERROR keeper: reference voices/keeper.wav changed (sha256 differs)
+1 voices, 1 errors, 0 warnings
+$ echo $?
+1

@@ -13,6 +13,8 @@ Checked 2026-11-04 from votes, papers and reports, mostly not by ear. Local clon
 | real time | Cartesia Sonic, Eleven v4 Turbo | Kokoro, Pocket TTS |
 | conversion | ElevenLabs Voice Changer | RVC (trained); Seed-VC is archived, GPL-3.0 |
 
+Do not start anything on Hume Octave or EVI: several third-party pages quote a Hume notice ending both APIs on 2026-11-13 and deleting account data, and Hume's current docs (read 2026-11-06) list only its Audio Decisions API. The notice itself was not read on a Hume page. A hosted voice ID does not move to another provider: keep the source recordings and the rights note in the bible.
+
 Licence traps: OmniVoice weights CC-BY-NC; F5-TTS weights CC-BY-NC; VibeVoice research only; Voxtral and Breeze non-commercial; Fish S2 Pro research only; IndexTTS has revenue and user caps; Higgs needs a credit. Read the licence on the day.
 
 16 GB PC fits: Qwen3, VoxCPM2, Chatterbox, CosyVoice3. Tight: IndexTTS. No: Drama 3. A Mac listing in mlx-audio is not a tested fit.

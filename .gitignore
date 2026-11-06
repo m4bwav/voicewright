@@ -6,3 +6,4 @@ __pycache__/
 !.github/samples/*.mp3
 .github/images/banner.png
 evals/results/
+skills/voicewright/evals/fixtures/*/

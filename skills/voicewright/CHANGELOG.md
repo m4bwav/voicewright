@@ -1,5 +1,9 @@
 # Changelog: voicewright
 
+## 0.1.2 (released 2026-11-06)
+
+`vw.py --version` printed 0.1.0 in 0.1.1; fixed, with a test that keeps it level with the manifests. Thresholds cite VIPBench: the 41% clone figure sits beside 31% for real pairs. Engines warn off Hume Octave and EVI. Eval cases now in the shape `worth --ab` grades, with `evals/build_fixtures.py`; worth verdict KEEP.
+
 ## 0.1.1 (released 2026-11-05)
 
 VoxCPM2 confirmed first for cloning after a pilot scene listen. Denoise note records one test on clean takes: no audible difference. SKILL.md names all three batch runners. Eval grader accepts a bible in any folder.

@@ -1,31 +1,28 @@
 # Handoff: voicewright
 
-State on 2026-11-05. Start here.
+State on 2026-11-06. Start here.
 
 ## Done
 
-- Public repo https://github.com/m4bwav/voicewright, release v0.1.1. everscout has the `ai-voice` beat.
+- Public repo https://github.com/m4bwav/voicewright, release v0.1.2, wiki at 0.1.2: https://github.com/m4bwav/voicewright/wiki (`ai-docs/notes/2026-11-06-github-wiki.md`). everscout has the `ai-voice` beat.
 - Clone default settled: VoxCPM2 first. Bake-off tied 2 to 2; pilot scene kept VoxCPM2, guess shown first: `research/2026-11-04-lab.md`. Denoise test: no audible difference on clean takes.
-- Evals rerun: triggers 9/9, decoys 9/9, action 29/30, baseline 2/10: `skills/voicewright/TESTS.md`. Runner `evals/run_local.py`.
-- `ai-voice` scanned 2026-11-05: 37 notes in `~/.everscout/data/ai-voice`. The beat's weekly web searches were not run.
+- Worth verdict KEEP, 100% against 22%: `skills/voicewright/TESTS.md`. Stereotype-trap 3/3 there, so no tuning.
+- VIPBench read and cited in `references/thresholds.md`, no threshold changed. Beat searches run: `research/2026-11-06-beat-searches.md`.
 - Lab audio is outside the repo at `Ai/voicewright-lab`.
 
 ## Waiting on Mark
 
-- IndexTTS-2.5 and Ming-3.0: he chose to run the installs or add a rule himself. Cloned to the engines folder, nothing installed. Do not route around this.
+- IndexTTS-2.5 and Ming-3.0: he chose to run the installs or add a rule himself. Cloned to the engines folder, nothing installed. Do not route around this. Then add both to the bake-off.
 - TTS Audio Suite still waits.
-- Wiki: `voicewright.wiki.git` does not exist until a first page is saved at https://github.com/m4bwav/voicewright/wiki/_new (any text). Then write it with `wikiwright`.
 - Social preview upload is a click in GitHub settings: `.github/images/social-preview.jpg`.
-- voicewright is not installed as a plugin on this PC, so `claude plugin update` had nothing to update. Install only on his word.
+- voicewright is not installed as a plugin on this PC, so `claude plugin update` has nothing to update. Install only on his word.
 - Whether the pilot take may replace the public sample. Not asked yet; the sample stays until he clears one.
 
 ## Owed
 
-1. Worth verdict is still UNPROVEN: `worth --ab` returned ungradable on this evidence shape. Convert the cases to its expectations, or give a harness adapter, proving on one case at one run before paying for more.
-2. stereotype-trap 2/3: one prompt file held a type word. Read the case and tune if it repeats.
-3. Read the VIPBench paper (arXiv 2611.05638): listeners called 41% of clone pairs different people. Consider it for `references/thresholds.md`, with a calibration note.
-4. Add IndexTTS and Ming to the bake-off once he has installed them.
-5. Confirm the Hume end date from Hume (an aggregator says 2026-11-13; Hume's intro page does not mention it). Run the beat's web searches.
+1. Hume's own notice was never read: its docs now show only Audio Decisions. After 2026-11-13, note whether the APIs did end.
+2. Testing CAM++ on VIPBench data needs its licence checked first (none stated on the page read). Optional.
+3. evergreen's A/B grader ignores `max: 0` on a trace, which inverts a ban: report or fix it in the evergreen repo. clone-no-consent stays out of the A/B until then.
 
 ## Rules that bind
 

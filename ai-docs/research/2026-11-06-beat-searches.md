@@ -20,4 +20,21 @@ Tang and Groh, arXiv 2611.05638, NeurIPS 2026. The first 100,000 of about 130,00
 
 P(same) by pair: same speaker real-real 0.69, same speaker real-clone 0.59, different speaker real 0.26, different speaker clone 0.27. The scout note's 41% reads worse than it is without the 31% real-real figure.
 
-Models: eleven, CAM++ absent. Resemblyzer best (r 0.656, AUC 0.872); ECAPA-TDNN r 0.646, AUC 0.862; WeSpeaker ResNet34-LM r 0.627, AUC 0.851. A fixed cut-off is not recommended; Platt calibration is, for a confidence. Clones are nearly all Cartesia Sonic 3, with a 60-pair CosyVoice 2 subset too small to compare engines. Data at `sendfuze/vipbench` on Hugging Face; no licence stated on the page read, so it was not downloaded. Testing CAM++ on it needs that licence checked first.
+Models: eleven, CAM++ absent. Resemblyzer best (r 0.656, AUC 0.872); ECAPA-TDNN r 0.646, AUC 0.862; WeSpeaker ResNet34-LM r 0.627, AUC 0.851. A fixed cut-off is not recommended; Platt calibration is, for a confidence. Clones are nearly all Cartesia Sonic 3, with a 60-pair CosyVoice 2 subset too small to compare engines. Data at `sendfuze/vipbench` on Hugging Face, CC BY-NC 4.0 per its card.
+
+### CAM++ on VIPBench, 2026-11-06
+
+Mark asked for this as a private report: no threshold comes from it, and the audio stays in `voicewright-lab/vipbench` (scorer `vipbench_score.py`, per-pair scores `campp_scores.csv`). The model is voicewright's own CAM++, cosine, all 9,800 pairs of the main set. Only these aggregate figures are recorded here. Data: VIPBench, Tang and Groh, CC BY-NC 4.0.
+
+Overall: Pearson r 0.635 to human P(same), AUC 0.833 to the human majority. Without morphs (1,700 pairs): r 0.789, AUC 0.903 to the majority, 0.996 to the true label.
+
+| pair type | n | median score | mean human P(same) | share at 0.55 or over | r to P(same) |
+|---|---|---|---|---|---|
+| same recording | 100 | 0.898 | 0.907 | 100% | 0.276 |
+| same speaker, real | 400 | 0.743 | 0.689 | 96.5% | 0.541 |
+| same speaker, clone | 400 | 0.621 | 0.593 | 76% | 0.405 |
+| different speakers, real | 400 | 0.180 | 0.263 | 0.3% | 0.449 |
+| different speakers, clone | 400 | 0.166 | 0.274 | 0% | 0.372 |
+| morphs | 8,100 | 0.448 | 0.381 | 34.4% | 0.587 |
+
+Reading: CAM++ sits in the paper's model range, r 0.635 against 0.627 to 0.656, but this is my own scoring and fbank, with raw cosine and no Platt step, so it is not a formal entry on that table. At 0.55, 24% of same-speaker Cartesia clones fall short while different-speaker pairs almost never pass, which supports a low score meaning "listen", not "reject". Within any one type the correlation with listeners is modest, so the score cannot replace the ear. Clones are one engine, not ours; no threshold changed.

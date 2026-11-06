@@ -4,7 +4,7 @@ State on 2026-11-05. Start here.
 
 ## Done
 
-- Public repo https://github.com/m4bwav/voicewright. Plugin code, skill, tests, bible schema 1, pilot sample. everscout 0.12.0 released with the `ai-voice` beat.
+- Public repo https://github.com/m4bwav/voicewright, release v0.1.0. Plugin code, skill, tests, bible schema 1, pilot sample. everscout 0.12.0 released with the `ai-voice` beat.
 - Bake-off unblinded: VoxCPM2 2, Qwen3 2, Chatterbox 0. VoxCPM2 first for cloning: `research/2026-11-04-lab.md`.
 - Thresholds checked on generated voices, none changed: `references/thresholds.md`.
 - Evals run and tuned: `skills/voicewright/TESTS.md`. Runner `evals/run_local.py`; cases `evals/build_cases.py`.
@@ -15,6 +15,7 @@ State on 2026-11-05. Start here.
 - Blind page `Ai/voicewright-lab/ask_pilot`: the pilot scene on two engines and a denoiser test. Read with `python Ai/askwright/skills/askwright/scripts/ask.py read <dir>`, restart with `serve --detach`, unblind with `voicewright-lab/pilot_key.json`.
 - IndexTTS-2.5 and Ming-3.0: he chose to run the installs or add a rule himself. Cloned to the engines folder, nothing installed. Do not route around this.
 - TTS Audio Suite still waits.
+- Wiki: `voicewright.wiki.git` does not exist until a first page is saved at https://github.com/m4bwav/voicewright/wiki/_new (any text). Then write it with `wikiwright`.
 - Social preview upload is a click in GitHub settings: `.github/images/social-preview.jpg`.
 
 ## Owed

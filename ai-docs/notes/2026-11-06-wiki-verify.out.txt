@@ -1,6 +1,6 @@
 === version ===
 $ vw.py --version
-0.1.0
+0.1.2
 $ echo $?
 0
 === init ===

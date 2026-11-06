@@ -16,6 +16,7 @@ State on 2026-11-05. Start here.
 - TTS Audio Suite still waits.
 - Wiki: `voicewright.wiki.git` does not exist until a first page is saved at https://github.com/m4bwav/voicewright/wiki/_new (any text). Then write it with `wikiwright`.
 - Social preview upload is a click in GitHub settings: `.github/images/social-preview.jpg`.
+- voicewright is not installed as a plugin on this PC, so `claude plugin update` had nothing to update. Install only on his word.
 - Whether the pilot take may replace the public sample. Not asked yet; the sample stays until he clears one.
 
 ## Owed

@@ -26,7 +26,7 @@ Generated voices tend to fail the same ways: ten characters collapse into a few 
 
 ## Hear it
 
-[A four-voice pilot scene](.github/samples/pilot-scene.mp3) (MP3, unmixed, no room tone). The scene and voices are invented, and all of it is AI-generated with Qwen3-TTS.
+[A four-voice pilot scene](.github/samples/pilot-scene.mp3) (MP3, unmixed, no room tone). The scene and voices are invented, and all of it is AI-generated with VoxCPM2, the default clone engine.
 
 ## Install
 

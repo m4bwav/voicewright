@@ -1,5 +1,9 @@
 # Changelog: voicewright
 
+## 0.1.4 (released 2026-11-06)
+
+From two books, Alburger and Tan: direction by event, listener and thought; writing `say` for the ear; timing in the join; retry notes; text normalising; a first test by fault; `rhythm` and `key_line` on the sheet; published scores explained. All untested on current engines and marked so. No threshold changed.
+
 ## 0.1.3 (released 2026-11-06)
 
 Batch runners for IndexTTS-2.5 and Ming-3.0 tiny. Five-engine listen: VoxCPM2 stays first for cloning; neither new engine won a voice. Windows and RTX 50 install notes for both.

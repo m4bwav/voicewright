@@ -42,3 +42,7 @@ Limits for the first table: clean read English speech of real people, not TTS, n
 No validated script detects metallic sound. `flatness_4_8k` and `hf_cutoff_hz` are reported for comparing takes, with no pass mark. NISQA weights are non-commercial, so it is not bundled.
 
 Pitch and pace are not identity. Measure a dry line, never a mix.
+
+## Published scores
+
+MOS is opinion of quality, CMOS a head-to-head with another system or a recording, SMOS similarity to a reference. Compare them only within one test. A high MOS says nothing about identity, and MCD and SDR need a recording of the same words, so they cannot score a new line.

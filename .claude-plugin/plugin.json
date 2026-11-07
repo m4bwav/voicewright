@@ -1,6 +1,6 @@
 {
   "name": "voicewright",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Original, consistent, high-quality voices: trait-based voice sheets, a voice bible anyone can rebuild from disk, and measured checks for casts that collapse into a few voices, reused voices, drift, artifacts and flat reads, with consent built in. Works with cinewright and musicwright through the bible file. Evergreen.",
   "author": {"name": "Mark Rogers"},
   "license": "MIT",

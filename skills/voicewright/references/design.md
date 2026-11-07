@@ -4,7 +4,7 @@ Prompts move delivery more than identity. Trait prompts are a way to get differe
 
 ## The sheet
 
-Required: `age`, `pitch` (a band in words, then measured Hz once rendered), `resonance` (chest, mouth, nasal, head), `texture` (breathy, creaky, hoarse, smooth), `pace`, `pitch_movement`, `attitude`. Optional: `accent`, `quirks`, `breath`, `not` (what to avoid).
+Required: `age`, `pitch` (a band in words, then measured Hz once rendered), `resonance` (chest, mouth, nasal, head), `texture` (breathy, creaky, hoarse, smooth), `pace`, `pitch_movement`, `attitude`. Optional: `accent`, `quirks`, `breath`, `rhythm` (a repeated emphasis pattern, separate from `pace`; direct it per line, since a prompt may not hold it), `key_line` (one short natural phrase rendered first when checking this voice), `not` (what to avoid).
 
 ## Turning a type into traits
 
@@ -23,7 +23,7 @@ An accent is part of who someone is, not a colour. Use one only when the charact
 
 ## Widening the range when candidates collapse
 
-In order of cost: different traits; a different seed (works only on engines with no fixed speaker); a different reference with unusual material you have rights to; speaker-embedding blending where the engine exposes it; voice conversion over a base performance. Blends far from training data hold less steadily. Formant and pitch moves over about 2 semitones start to sound processed: listen.
+When two voices sit close, change several of pitch, texture, pace, rhythm and resonance at once, then prove it with `VW cast` (acting craft, untested on engines). In order of cost: different traits; a different seed (works only on engines with no fixed speaker); a different reference with unusual material you have rights to; speaker-embedding blending where the engine exposes it; voice conversion over a base performance. Blends far from training data hold less steadily. Formant and pitch moves over about 2 semitones start to sound processed: listen.
 
 ## Proving it
 

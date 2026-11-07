@@ -4,7 +4,7 @@ State on 2026-11-06, session 10. Start here.
 
 ## Done
 
-- Public repo https://github.com/m4bwav/voicewright, release v0.1.2, wiki at 0.1.2: https://github.com/m4bwav/voicewright/wiki (`ai-docs/notes/2026-11-06-github-wiki.md`). everscout has the `ai-voice` beat.
+- Public repo https://github.com/m4bwav/voicewright, release v0.1.3, wiki at 0.1.3: https://github.com/m4bwav/voicewright/wiki (`ai-docs/notes/2026-11-06-github-wiki.md`). everscout has the `ai-voice` beat.
 - Clone default settled: VoxCPM2 first. Bake-off tied 2 to 2; pilot scene kept VoxCPM2, guess shown first: `research/2026-11-04-lab.md`. Denoise test: no audible difference on clean takes.
 - Worth verdict KEEP, 100% against 22%: `skills/voicewright/TESTS.md`. Stereotype-trap 3/3 there, so no tuning.
 - VIPBench read and cited in `references/thresholds.md`, no threshold changed. Beat searches run: `research/2026-11-06-beat-searches.md`.
@@ -16,7 +16,6 @@ State on 2026-11-06, session 10. Start here.
 
 ## Waiting on Mark
 
-- **Blind listen, five engines:** `voicewright-lab/ask_bake2`, key in `bake2_key.json`. Read with `ask.py read voicewright-lab/ask_bake2`; `serve --detach` if down. Picks decide whether IndexTTS-2.5 or Ming-3.0 tiny changes the default in `references/engines.md`. Do not change the ranking before then.
 - Social preview upload is a click in GitHub settings: `.github/images/social-preview.jpg`.
 
 ## Installed 2026-11-06 (session 10, manual approval)

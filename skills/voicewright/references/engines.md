@@ -1,6 +1,6 @@
 # Engines
 
-Checked 2026-11-04 from votes, papers and reports, mostly not by ear. Local clone rank updated 2026-11-05 from a blind listen: VoxCPM2 2, Qwen3-TTS 2, Chatterbox 0, one listener, four voices. VoxCPM2 goes first: it had no faults, where Qwen3 had a runaway clipped take, and the same listener kept its version of a ten-line, four-voice scene over Qwen3's (that page showed the agent's guess first, so it was not fully blind). This is a default to try, not a ranking; other rows are still provisional. Full table, sources: repository `ai-docs/research/2026-11-04-engines.md`.
+Checked 2026-11-04 from votes, papers and reports, mostly not by ear. Local clone rank updated 2026-11-05 from a blind listen: VoxCPM2 2, Qwen3-TTS 2, Chatterbox 0, one listener, four voices. VoxCPM2 goes first: it had no faults, where Qwen3 had a runaway clipped take, and the same listener kept its version of a ten-line, four-voice scene over Qwen3's (that page showed the agent's guess first, so it was not fully blind). A five-engine listen on 2026-11-06 kept it: VoxCPM2 2, Qwen3-TTS 1, Chatterbox 1, IndexTTS-2.5 0, Ming-3.0 tiny 0, same listener, with the agent's guess shown first on three of the four voices, so not fully blind. Ming was named good on one voice; IndexTTS was named poor on one. This is a default to try, not a ranking; other rows are still provisional. Full table, sources: repository `ai-docs/research/2026-11-04-engines.md`.
 
 | job | hosted | local, in order to try |
 |---|---|---|

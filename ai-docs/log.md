@@ -29,3 +29,5 @@ Ninth session. No new answers. The session started in auto mode again, so the th
 Tenth session. Auto mode again and no new answers, so the installs were not tried. An auto-mode run has nothing to do until Mark switches to manual or Hume's date passes, so the continue prompt now says to stop early and write nothing in that case.
 
 Tenth session, continued. Mark switched to manual and approved. All three installs done, each needing a change from the plan: IndexTTS without `accel`, Ming on cu128 and `triton-windows`, the suite without `pyworld`. A runner named `ming_tiny.py` shadowed its package, the same fault as Chatterbox, so it is `ming_run.py`: name runners unlike their package. A chained script copied the suite into `custom_nodes` after its install failed; removed before any restart. Measures: IndexTTS identity 0.816 to 0.897 with one cast pair too close (0.577), Ming 0.686 to 0.797 with none, no one has listened. Blind page `ask_bake2` served.
+
+Five-engine listen read: VoxCPM2 2, Qwen3 1, Chatterbox 1, IndexTTS 0, Ming 0. Default kept; the higher identity scores of IndexTTS again did not predict a pick. Released 0.1.3.

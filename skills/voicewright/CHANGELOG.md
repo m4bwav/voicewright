@@ -1,6 +1,6 @@
 # Changelog: voicewright
 
-## Unreleased
+## 0.1.5 (released 2026-11-06)
 
 Sfxwright, when installed: Hand sound effects to sfxwright when present and read its sounds.json; this plugin's own steps stay as the fallback.
 

@@ -1,5 +1,9 @@
 # Changelog: voicewright
 
+## Unreleased
+
+Sfxwright, when installed: Hand sound effects to sfxwright when present and read its sounds.json; this plugin's own steps stay as the fallback.
+
 ## 0.1.4 (released 2026-11-06)
 
 From two books, Alburger and Tan: direction by event, listener and thought; writing `say` for the ear; timing in the join; retry notes; text normalising; a first test by fault; `rhythm` and `key_line` on the sheet; published scores explained. All untested on current engines and marked so. No threshold changed.

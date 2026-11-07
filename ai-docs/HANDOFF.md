@@ -23,7 +23,7 @@ State on 2026-11-06, session 10. Start here.
 
 - IndexTTS-2.5: `uv sync` with no extras, because `flash-attn` in `accel` needs a CUDA toolkit. Licence terms: clips must not train or tune a commercial model; separate licence above 100 million monthly users or RMB 1 billion revenue; read the downstream duties before commercial advice.
 - Ming-3.0 tiny: own venv, Python 3.10.15, `requirements-tiny-win.txt` in the clone (torch 2.7.1+cu128, `triton-windows`), because cu118 cannot drive the RTX 5060 Ti and `triton` has no Windows wheel. Text normalization off (no `pynini`). About 20 s per line.
-- TTS Audio Suite in `D:/ComfyUI/custom_nodes`, from requirements minus `pyworld`, which needs a C++ compiler and serves only RVC harvest/dio. `install.py` not run. 92 packages added, only `huggingface-hub` changed; freezes in `voicewright-lab/comfyui_freeze_*`. No suite engine has been rendered yet.
+- TTS Audio Suite in `D:/ComfyUI/custom_nodes`, from requirements minus `pyworld`, which needs a C++ compiler and serves only RVC harvest/dio. `install.py` not run. 92 packages added, only `huggingface-hub` changed; freezes in `voicewright-lab/comfyui_freeze_*`. No suite engine has been rendered yet. A short H3 film render passed after the restart (`output/video/voicewright_suite_check`). The suite's startup check says ChatterBox, F5-TTS, Higgs Audio 2 and RVC lack packages its `install.py` would add (s3tokenizer, diffusers, f5-tts, cached-path, descript-audio-codec, vector-quantize-pytorch, faiss-cpu, torchcrepe); its log advises running `install.py`, which can reinstall torch, so do not. Add a named package only when a job needs that engine, dry run first.
 
 ## Owed
 

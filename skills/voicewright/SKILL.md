@@ -61,6 +61,10 @@ FAIL and DRIFT are not verdicts until heard, but do not deliver them unheard. Wh
 
 `VW finish <in> <out> --dest film|game|narration|audiobook|web|acx`. An unknown destination is an error: ask. Do not denoise unless `measure` finds noise; denoisers can add their own artifacts: [references/finish.md](references/finish.md). Use `mw.py master` for a final mix when musicwright is present. Audiobook and store rules, including disclosure: `references/rights.md`.
 
+## Sfxwright, when installed
+
+If the sfxwright plugin is present, hand it effects, foley and ambience, and read its `sounds.json` for the files. Room tone under a line stays here. The final mix belongs to neither: use `mw.py master` as above, or the film plugin. Without sfxwright, every step here still works.
+
 ## Output
 
 The route, the bible path, per-clip check lines, what was heard and by whom, and disclosure duties for the destination.

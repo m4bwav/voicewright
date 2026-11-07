@@ -17,7 +17,7 @@ Do not start anything on Hume Octave or EVI: several third-party pages quote a H
 
 Licence traps: OmniVoice weights CC-BY-NC; F5-TTS weights CC-BY-NC; VibeVoice research only; Voxtral and Breeze non-commercial; Fish S2 Pro research only; IndexTTS has revenue and user caps; Higgs needs a credit. Read the licence on the day.
 
-16 GB PC fits: Qwen3, VoxCPM2, Chatterbox, CosyVoice3. Tight: IndexTTS. No: Drama 3. A Mac listing in mlx-audio is not a tested fit.
+16 GB PC fits: Qwen3, VoxCPM2, Chatterbox, CosyVoice3, IndexTTS-2.5 and Ming-3.0 tiny (both rendered here 2026-11-06; Ming needs torch cu128 and `triton-windows` on Windows, not its cu118 pins). No: Drama 3. A Mac listing in mlx-audio is not a tested fit.
 
 ## Singing
 

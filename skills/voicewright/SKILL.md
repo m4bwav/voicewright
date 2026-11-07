@@ -10,7 +10,7 @@ metadata:
 
 Outcome: every voice exists as an entry in a `voices.json` bible with its sheet, reference clip and transcript, engine, model version, seed, pronunciation list and rights, and every delivered clip has a measured check line. Numbers catch faults; a person's ear decides. Mark anything unheard as unheard.
 
-`VW` means `python scripts/vw.py` from this folder (run it, do not read it). Read one reference when its step needs it. Batch runners: `scripts/engines/voxcpm2.py` (default for cloning), `qwen3.py`, `chatterbox_run.py`.
+`VW` means `python scripts/vw.py` from this folder (run it, do not read it). Read one reference when its step needs it. Batch runners: `scripts/engines/voxcpm2.py` (default for cloning), `qwen3.py`, `chatterbox_run.py`, `indextts25.py`, `ming_run.py`.
 
 ## Step 0: freshness
 

@@ -1,5 +1,9 @@
 # Changelog: voicewright
 
+## 0.1.3 (released 2026-11-06)
+
+Batch runners for IndexTTS-2.5 and Ming-3.0 tiny. Five-engine listen: VoxCPM2 stays first for cloning; neither new engine won a voice. Windows and RTX 50 install notes for both.
+
 ## 0.1.2 (released 2026-11-06)
 
 `vw.py --version` printed 0.1.0 in 0.1.1; fixed, with a test that keeps it level with the manifests. Thresholds cite VIPBench: the 41% clone figure sits beside 31% for real pairs. Engines warn off Hume Octave and EVI. Eval cases now in the shape `worth --ab` grades, with `evals/build_fixtures.py`; worth verdict KEEP.

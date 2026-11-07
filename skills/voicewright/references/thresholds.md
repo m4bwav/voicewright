@@ -41,6 +41,10 @@ Limits for the first table: clean read English speech of real people, not TTS, n
 
 No validated script detects metallic sound. `flatness_4_8k` and `hf_cutoff_hz` are reported for comparing takes, with no pass mark. NISQA weights are non-commercial, so it is not bundled.
 
+`formants_hz` is the median F1 to F3 by LPC on the loudest 30 ms frames, resampled to 10 kHz (order 12, the rate in kHz plus 2, so every source rate is measured alike). It is reported with no pass mark, for comparing takes of one voice saying similar text: vowels move it, so different lines differ with no fault. Synthetic vowels only so far, uncalibrated on speech. Any spectral number holds only at the same settings: Sueur (2018, 10.1.6.1) shows one sound's Q running from about 9 to 43 as the window grows, so never compare `flatness_4_8k` across clips of different sample rates, since the window here is a fixed sample count.
+
+Two recordings of the same words need aligning before a frame-by-frame score; dynamic time warping does that, and it is why MCD cannot score a new line (Sueur 2018, 17.3).
+
 Pitch and pace are not identity. Measure a dry line, never a mix.
 
 ## Published scores

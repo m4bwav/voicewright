@@ -144,6 +144,24 @@ class Spectrum(unittest.TestCase):
         a = array.array("h", [int(x) for x in tone(2, hz=150)])
         self.assertAlmostEqual(vw.measure_spectrum(a, SR)["f0_median_hz"], 150, delta=5)
 
+    def test_formants_found_on_a_synthetic_vowel_at_two_rates(self):
+        for sr in (24000, 44100):
+            samples = [0.0] * sr
+            for k in range(0, sr, sr // 120):
+                samples[k] = 1.0
+            for fc, bw in ((700, 80), (1200, 90), (2600, 120)):   # Klatt-style cascade of resonators
+                r = math.exp(-math.pi * bw / sr)
+                a1, a2 = 2 * r * math.cos(2 * math.pi * fc / sr), -r * r
+                y1 = y2 = 0.0
+                for i, v in enumerate(samples):
+                    y = v + a1 * y1 + a2 * y2
+                    samples[i], y2, y1 = y, y1, y
+            peak = max(abs(v) for v in samples)
+            a = array.array("h", (int(v / peak * 20000) for v in samples))
+            got = vw.measure_spectrum(a, sr)["formants_hz"]
+            for g, want in zip(got, (700, 1200, 2600)):
+                self.assertAlmostEqual(g, want, delta=want * 0.1)
+
 
 if __name__ == "__main__":
     unittest.main()

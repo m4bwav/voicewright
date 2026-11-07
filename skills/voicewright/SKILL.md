@@ -3,7 +3,7 @@ name: voicewright
 description: "Make original, consistent, high-quality voices and keep them: a voice sheet in acoustic traits, truly different candidates for a blind listen, a versioned voice bible anyone can rebuild from disk, lines per script or dialogue file, and measured checks for a cast that collapses into a few voices, reuse across projects, drift between takes, artifacts and flat reads. Use whenever a game, film, narration, audiobook or kids' story needs a voice or a cast: 'design a voice', 'voice these NPCs', 'keep this voice the same', 'these voices all sound alike', 'it sounds metallic', 'which TTS should I use', 'clone this voice'. Also first, before writing anything, for any voice meant to sound like a named actor, singer or public figure ('make my villain sound like <actor>'), even when only a prompt or text is asked for: it handles consent and sound-alikes. Film shot workflow is cinewright-voice, which calls this; whole songs are musicwright. Also 'refresh voicewright'."
 license: MIT
 metadata:
-  version: 0.1.5
+  version: 0.1.6
 ---
 
 # voicewright

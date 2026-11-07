@@ -16,7 +16,7 @@ import urllib.request
 import wave
 from pathlib import Path
 
-VERSION = "0.1.4"
+VERSION = "0.1.5"
 SCHEMA = 1
 MODEL_URL = "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/wespeaker_en_voxceleb_CAM++.onnx"
 MODEL_NAME = "wespeaker_en_voxceleb_CAM++.onnx"

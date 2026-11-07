@@ -16,7 +16,7 @@ import urllib.request
 import wave
 from pathlib import Path
 
-VERSION = "0.1.5"
+VERSION = "0.1.6"
 SCHEMA = 1
 MODEL_URL = "https://github.com/k2-fsa/sherpa-onnx/releases/download/speaker-recongition-models/wespeaker_en_voxceleb_CAM++.onnx"
 MODEL_NAME = "wespeaker_en_voxceleb_CAM++.onnx"
@@ -191,7 +191,35 @@ def measure_spectrum(a, sr):
             i = int(d.argmax())
             r["tone_peak_db"], r["tone_peak_hz"] = round(float(d[i]), 1), int(fb[i])
     r.update(pitch(x, sr, np))
+    r.update(formants(x, sr, np))
     return r
+
+
+def formants(x, sr, np):
+    """Median F1-F3 by LPC on the loudest 30 ms frames, at 10 kHz with order 12 (kHz + 2). For comparing takes of one voice; no pass mark."""
+    n = int(sr * 0.03)
+    if sr < 10000 or len(x) < n * 5:
+        return {}
+    fr = np.lib.stride_tricks.sliding_window_view(x, n)[::n // 2]
+    e = (fr ** 2).sum(axis=1)
+    fs, order, tracks = 10000.0, 12, []
+    m = int(n * fs / sr)
+    for f in fr[np.argsort(e)[::-1][:max(5, len(fr) // 3)]]:
+        y = np.fft.irfft(np.fft.rfft(f)[:m // 2 + 1], m)   # band-limit and resample, so every rate is measured alike
+        y = np.append(y[0], y[1:] - 0.97 * y[:-1]) * np.hamming(m)
+        c = np.correlate(y, y, "full")[m - 1:m + order]
+        if c[0] <= 0:
+            continue
+        toeplitz = np.array([[c[abs(i - j)] for j in range(order)] for i in range(order)]) + np.eye(order) * c[0] * 1e-6
+        roots = np.roots(np.r_[1.0, -np.linalg.solve(toeplitz, c[1:])])
+        roots = roots[roots.imag > 0]
+        hz, bw = np.angle(roots) * fs / (2 * np.pi), -np.log(np.abs(roots) + 1e-12) * fs / np.pi
+        peaks = np.sort(hz[(hz > 150) & (hz < 4500) & (bw < 500)])
+        if len(peaks) >= 3:
+            tracks.append(peaks[:3])
+    if len(tracks) < 5:
+        return {}
+    return {"formants_hz": [int(v) for v in np.median(np.array(tracks), axis=0)]}
 
 
 def pitch(x, sr, np):

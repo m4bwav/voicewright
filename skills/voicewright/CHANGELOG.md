@@ -1,5 +1,9 @@
 # Changelog: voicewright
 
+## 0.1.6 (released 2026-11-07)
+
+From Sueur, Sound Analysis and Synthesis with R: `measure` reports `formants_hz` (LPC, no pass mark), and thresholds.md says spectral numbers compare only at the same settings and why aligned scores need the same words.
+
 ## 0.1.5 (released 2026-11-06)
 
 Sfxwright, when installed: Hand sound effects to sfxwright when present and read its sounds.json; this plugin's own steps stay as the fallback.

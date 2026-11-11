@@ -43,7 +43,16 @@ The speaker thresholds were calibrated on 26 real speakers from Mini LibriSpeech
 
 ## Works with
 
-cinewright and musicwright read the same bible file; neither needs the other installed. Licensing and law notes are dated, not legal advice.
+Every partner is optional, and none imports another. `voices.json` is the file they share.
+
+- [cinewright](https://github.com/m4bwav/cinewright): cinewright plans the shots, and voicewright gives each character one voice that stays the same across them. The bible extends cinewright's format, so an older film moves across with `VW migrate`.
+- [musicwright](https://github.com/m4bwav/musicwright): voicewright keeps the voice's identity, including a singing note, and musicwright generates the songs. The singer and the speaker stay one person.
+- [sfxwright](https://github.com/m4bwav/sfxwright): effects go there, and voicewright reads its `sounds.json`. Voices and effects end up in separate files a mix can balance.
+- [askwright](https://github.com/m4bwav/askwright): candidates go on a blind, level-matched listening page. Identity scores don't predict which voice people pick.
+- [grindwright](https://github.com/m4bwav/grindwright): the voice lane of a long game or film project, with each voice's provenance recorded.
+- [everscout](https://github.com/m4bwav/everscout): the `ai-voice` beat feeds refreshes. Engine and legal claims go out of date within weeks.
+
+Licensing and law notes are dated, not legal advice. More on the wiki's [Works with](https://github.com/m4bwav/voicewright/wiki/Works-With) page.
 
 ## Licence
 

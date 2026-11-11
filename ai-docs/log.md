@@ -33,3 +33,7 @@ Tenth session, continued. Mark switched to manual and approved. All three instal
 Five-engine listen read: VoxCPM2 2, Qwen3 1, Chatterbox 1, IndexTTS 0, Ming 0. Default kept; the higher identity scores of IndexTTS again did not predict a pick. Released 0.1.3.
 
 Eleventh session. Mark asked for useful books and put Alburger and Tan in the folder. Both distilled into `~/.everscout/data/ai-voice/books`, ten changes merged and shortened, released 0.1.4. Roughly 10% of Alburger transfers; Tan is background. None of it is tested on engines, so a blind listen of the direction changes is the open test. Tutorials and communities: `research/2026-11-06-tutorials-communities.md`. Wanted list: `Ai/books/voicewright-wanted-books.md`; Laver and Kreiman and Sidtis still wanted.
+
+## 2026-11-11, works-with docs
+
+README "Works with" section and a wiki Works-With page now say what crosses each way between voicewright and its partner plugins, and why the pair helps. Taken from the partner mentions in each plugin's skills.

@@ -1,5 +1,9 @@
 # Changelog: voicewright
 
+## 0.1.7 (released 2026-11-14)
+
+From Tannen, Conversational Style: an optional style block on the sheet (`turn_gap`, `overlap`, `silence`, `irony`) kept apart from timbre, with a warning that style is not accent; alike voices also separate by gap, rate, pitch range and loudness; dialogue gaps start from `turn_gap`, back-channels lie under the speaker, cooperative overlap and takeover are joined differently; three more retry moves. Because: the book shows timing and overlap carry character as much as voice quality. Book rules, unverified on engines.
+
 ## 0.1.6 (released 2026-11-07)
 
 From Sueur, Sound Analysis and Synthesis with R: `measure` reports `formants_hz` (LPC, no pass mark), and thresholds.md says spectral numbers compare only at the same settings and why aligned scores need the same words.

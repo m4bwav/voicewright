@@ -8,6 +8,10 @@ Required: `age`, `pitch` (a band in words, then measured Hz once rendered), `res
 
 Optional conversational style, kept apart from timbre: `turn_gap` (latch, short, long: how soon this speaker comes in after another), `overlap` (cooperative, takeover, none: talking along to support, or cutting in to take the turn), `silence` (fills, waits), `irony` (contour, deadpan: whether a joke is marked in the melody or played flat). Style is not accent: never turn it into ethnic or regional costume. These dials come from a book on conversational style (Tannen); book rule, unverified on engines.
 
+Two more optional axes, from a singing-teaching book (Sadolin): `energy` (gentle or sharp: a soft speaker who tires when pushed loud, or a bright, loud one who cracks when asked to go quiet) and `colour` (light to dark). Darker tends to read as weight and authority, lighter as youth or tenderness. Book rule, unverified on engines.
+
+A cloned voice keeps its quirks: a small hitch, an odd vowel, its own pitch. Smoothing them away or shifting the pitch can make it someone else, so change them only when asked.
+
 ## Turning a type into traits
 
 | brief | default trap | ask instead |

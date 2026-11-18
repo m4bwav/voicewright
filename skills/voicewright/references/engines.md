@@ -11,9 +11,12 @@ Checked 2026-11-04 from votes, papers and reports, mostly not by ear. Local clon
 | dialogue | ElevenLabs Text to Dialogue | per line with frozen voices, then join |
 | non-English | Eleven v4 | VoxCPM2, MOSS v1.5, Chatterbox V3 |
 | real time | Cartesia Sonic, Eleven v4 Turbo | Kokoro, Pocket TTS |
+| clone with transcript (optional) | | VoxMel-0.6B via `engines/voxmel_run.py`, 4 steps, using your own VoxMel install (`VOXMEL_HOME`). English and Chinese only. Code and weights Apache-2.0, but trained on Emilia (CC BY-NC): personal projects only, never anything that will be sold. Measured 2026-11-17 on one voice, three lines: similarity 0.894 vs VoxCPM2 0.822 with transcript, RTF about 1.0, 3.7 GB VRAM. Unheard; VoxCPM2 stays the default |
 | conversion | ElevenLabs Voice Changer | RVC (trained); Seed-VC is archived, GPL-3.0 |
 
 Do not start anything on Hume Octave or EVI: several third-party pages quote a Hume notice ending both APIs on 2026-11-13 and deleting account data, and Hume's current docs (read 2026-11-06) list only its Audio Decisions API. The notice itself was not read on a Hume page. A hosted voice ID does not move to another provider: keep the source recordings and the rights note in the bible.
+
+VoxCPM2 clones closer when the job carries the reference transcript (`ref_text`): similarity 0.734 to 0.822 in the same 2026-11-17 test, RTF 1.03 to about 1.2. `voxcpm2.py` passes it whenever it is there.
 
 Licence traps: OmniVoice weights CC-BY-NC; F5-TTS weights CC-BY-NC; VibeVoice research only; Voxtral and Breeze non-commercial; Fish S2 Pro research only; IndexTTS has revenue and user caps; Higgs needs a credit. Read the licence on the day.
 

@@ -37,3 +37,4 @@ Eleventh session. Mark asked for useful books and put Alburger and Tan in the fo
 ## 2026-11-11, works-with docs
 
 README "Works with" section and a wiki Works-With page now say what crosses each way between voicewright and its partner plugins, and why the pair helps. Taken from the partner mentions in each plugin's skills.
+- 2026-11-17: 0.1.8. voxcpm2.py passes ref_text as prompt_text; optional voxmel_run.py (VoxMel-0.6B, 4 steps, VOXMEL_HOME, personal projects only). From technique-harvest D19 GPU test. VoxCPM2 stays default until listened.

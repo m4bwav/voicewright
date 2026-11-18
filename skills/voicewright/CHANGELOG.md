@@ -1,5 +1,9 @@
 # Changelog: voicewright
 
+## 0.1.8 (released 2026-11-17)
+
+`voxcpm2.py` passes the reference transcript (`ref_text`) as `prompt_text` when a clone job has one. Because: in a 2026-11-17 GPU test speaker similarity rose 0.734 to 0.822 at RTF about 1.2 instead of 1.03. New optional engine `engines/voxmel_run.py` (VoxMel-0.6B, 4 steps) runs an existing VoxMel install named by `VOXMEL_HOME`; nothing vendored. It measured similarity 0.894, RTF about 1.0, 3.7 GB VRAM, but speaks only English and Chinese and its training data is CC BY-NC, so personal projects only. VoxCPM2 stays the default until the takes are heard.
+
 ## 0.1.7 (released 2026-11-14)
 
 From Tannen, Conversational Style: an optional style block on the sheet (`turn_gap`, `overlap`, `silence`, `irony`) kept apart from timbre, with a warning that style is not accent; alike voices also separate by gap, rate, pitch range and loudness; dialogue gaps start from `turn_gap`, back-channels lie under the speaker, cooperative overlap and takeover are joined differently; three more retry moves. Because: the book shows timing and overlap carry character as much as voice quality. Book rules, unverified on engines.

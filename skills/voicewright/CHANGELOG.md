@@ -1,5 +1,9 @@
 # Changelog: voicewright
 
+## 0.1.10 (unreleased)
+
+From Linklater, Freeing the Natural Voice (2006): split `say` by thought with breath points at thought changes; mark turns (but, if, though) and say what shifts there; tactic and why-these-words in direction; named take faults (sing-song, head monotone, strained, thin, flat-rich bass, nasal, generalised, held pitch) with retry moves; a same-dynamics run in a scene is a fault; five background facts before traits. Because: the book's text checklist and fault patterns give direction and listening words. Body-training book, unverified on engines: guidance only, no script check or threshold.
+
 ## 0.1.9 (released 2026-11-17)
 
 design.md gains two optional sheet axes, `energy` (gentle or sharp) and `colour` (light to dark), and a line to keep a cloned voice's quirks and pitch unless asked. Because: Sadolin, Complete Vocal Technique (2012), speech and sound-colour chapters (PDF p. 153-159). Book rule, unverified on engines; no anatomy or exercise content carried.

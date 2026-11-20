@@ -7,10 +7,15 @@ Nothing of VoxMel is vendored here. Set VOXMEL_HOME (or "voxmel_home" in a job) 
 and VOXMEL_WEIGHTS (or "voxmel_weights") to the folder with the checkpoint and vocos/; it defaults to
 <home>/weights.
 
-jobs.json is a list of {"out", "text", "ref", "ref_text"} plus "seed" and optional "steps" (default 4).
+jobs.json is a list of {"out", "text", "ref", "ref_text"} plus "seed" and optional "steps" (default 8).
 VoxMel clones only, needs the reference's exact transcript, and speaks English and Chinese only.
 Licence: code and weights Apache-2.0, but trained on Emilia (CC BY-NC): personal projects only,
-nothing that will be sold. Measured 2026-11-17 at 4 steps: similarity 0.894, RTF about 1.0, 3.7 GB VRAM.
+nothing that will be sold.
+
+"steps" are guided Euler steps on the GRPO model, not a distilled student (arXiv:2611.20254), so
+few steps can run away. GPU test 2026-11-20, 3 voices x 10 lines, same seeds, at 4 / 8 / 32 steps:
+WER 38.0% / 2.6% / 1.0% (4 steps: mostly one runaway stutter clip, 3.9% without it), similarity
+0.874 / 0.893 / 0.896, RTF 1.09 / 1.22 / 2.05. 8 is the default; use 4 only for drafts you will hear.
 """
 import json
 import os
@@ -19,7 +24,7 @@ import time
 from pathlib import Path
 
 MODEL = "VoxMel-0.6B"
-STEPS = 4
+STEPS = 8
 
 
 def paths(job=None):

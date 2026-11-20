@@ -66,6 +66,9 @@ class VoxMelJobs(unittest.TestCase):
     def test_no_vendored_code(self):
         self.assertFalse((ENG / "voxcore").exists())
 
+    def test_default_steps_eight(self):
+        self.assertEqual(self.m.STEPS, 8)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,6 +1,10 @@
 # Changelog: voicewright
 
-## 0.1.10 (unreleased)
+## 0.1.11 (released 2026-11-20)
+
+`voxmel_run.py` defaults to 8 steps, not 4; a job's `steps` still overrides. The docstring and engines.md now say what a step is: a guided Euler step on the GRPO model, not a distilled student (arXiv:2611.20254), so few steps can run away. Because: a 2026-11-20 GPU test, 3 voices x 10 lines, same seeds, at 4 / 8 / 32 steps gave WER 38.0% / 2.6% / 1.0% (at 4 steps mostly one runaway stutter clip, 3.9% without it), speaker similarity 0.874 / 0.893 / 0.896 and RTF 1.09 / 1.22 / 2.05. 8 steps buys nearly all of 32's accuracy for 12% more time than 4.
+
+## 0.1.10 (released 2026-11-20)
 
 From Linklater, Freeing the Natural Voice (2006): split `say` by thought with breath points at thought changes; mark turns (but, if, though) and say what shifts there; tactic and why-these-words in direction; named take faults (sing-song, head monotone, strained, thin, flat-rich bass, nasal, generalised, held pitch) with retry moves; a same-dynamics run in a scene is a fault; five background facts before traits. Because: the book's text checklist and fault patterns give direction and listening words. Body-training book, unverified on engines: guidance only, no script check or threshold.
 

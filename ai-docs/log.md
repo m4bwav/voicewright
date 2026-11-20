@@ -38,3 +38,4 @@ Eleventh session. Mark asked for useful books and put Alburger and Tan in the fo
 
 README "Works with" section and a wiki Works-With page now say what crosses each way between voicewright and its partner plugins, and why the pair helps. Taken from the partner mentions in each plugin's skills.
 - 2026-11-17: 0.1.8. voxcpm2.py passes ref_text as prompt_text; optional voxmel_run.py (VoxMel-0.6B, 4 steps, VOXMEL_HOME, personal projects only). From technique-harvest D19 GPU test. VoxCPM2 stays default until listened.
+- 2026-11-20: 0.1.11. voxmel_run.py default steps 4 -> 8 (job "steps" overrides). Steps are guided Euler steps on the GRPO model, not a distilled student (arXiv:2611.20254). GPU test 3 voices x 10 lines: WER 38.0/2.6/1.0% at 4/8/32, SIM 0.874/0.893/0.896, RTF 1.09/1.22/2.05. From technique-harvest.

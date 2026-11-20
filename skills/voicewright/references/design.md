@@ -12,6 +12,8 @@ Two more optional axes, from a singing-teaching book (Sadolin): `energy` (gentle
 
 A cloned voice keeps its quirks: a small hitch, an odd vowel, its own pitch. Smoothing them away or shifting the pitch can make it someone else, so change them only when asked.
 
+Before picking traits, write five facts about the speaker (age and body, temperament, work, social place, beliefs) and let the traits follow; they stay notes, not sheet fields (Linklater, section 37; unverified on engines).
+
 ## Turning a type into traits
 
 | brief | default trap | ask instead |
